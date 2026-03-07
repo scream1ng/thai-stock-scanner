@@ -1,5 +1,6 @@
 import os
 import io
+import time
 import requests
 import matplotlib
 matplotlib.use("Agg")
@@ -36,7 +37,7 @@ def _create_thread(thread_name: str, content: str) -> str | None:
     return resp.json().get("channel_id")
 
 
-def _post(content: str, thread_id: str | None = None):
+def _post(content: str, thread_id: str | None = None, retries: int = 5):
     """Send a text message into a thread (or stdout if no webhook)."""
     if not content or not content.strip():
         return
@@ -44,10 +45,20 @@ def _post(content: str, thread_id: str | None = None):
         print(content)
         return
     url = f"{WEBHOOK_URL}?thread_id={thread_id}" if thread_id else WEBHOOK_URL
-    resp = requests.post(url, json={"content": content}, timeout=15)
-    if not resp.ok:
-        print(f"[ERROR] {resp.status_code}: {resp.text}")
-        resp.raise_for_status()
+    for attempt in range(retries):
+        resp = requests.post(url, json={"content": content}, timeout=15)
+        if resp.status_code == 429:
+            retry_after = float(resp.json().get("retry_after", 2))
+            wait = max(retry_after, 2) + 1  # always wait at least 3s
+            print(f"  Rate limited (attempt {attempt+1}) — waiting {wait}s...")
+            time.sleep(wait)
+            continue
+        if not resp.ok:
+            print(f"[ERROR] {resp.status_code}: {resp.text}")
+            resp.raise_for_status()
+        time.sleep(1.5)  # 1.5s between every message (GitHub Actions safe)
+        return
+    raise Exception(f"Failed after {retries} retries: {resp.status_code}")
 
 
 def _post_file(filename: str, file_bytes: bytes, content: str = "", thread_id: str | None = None):
