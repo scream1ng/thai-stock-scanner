@@ -1,0 +1,41 @@
+name: Daily Thai RS Scan
+
+on:
+  schedule:
+    # 10:00 UTC = 5:00 PM Bangkok (after SET closes at 4:30 PM)
+    # Runs Mon–Fri only
+    - cron: "0 10 * * 1-5"
+  workflow_dispatch:  # allow manual trigger from GitHub UI
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # needed to commit data/ back to repo
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run daily scan
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: python main.py
+
+      - name: Commit data snapshot
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          # Only commit if something actually changed
+          git diff --staged --quiet || git commit -m "data: scan $(date -u +%Y-%m-%d)"
+          git push
