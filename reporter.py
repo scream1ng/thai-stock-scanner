@@ -9,8 +9,6 @@ CHAR_LIMIT     = 1900
 QUADRANT_ORDER = ["Leading", "Improving", "Weakening"]
 QUADRANT_EMOJI = {"Leading": "🟢", "Improving": "🔵", "Weakening": "🟠"}
 
-print(f"[DEBUG] WEBHOOK_URL = '{WEBHOOK_URL}'")
-
 # ── Discord primitives ─────────────────────────────────────────────────────────
 
 def _create_thread(thread_name: str, content: str) -> str | None:
