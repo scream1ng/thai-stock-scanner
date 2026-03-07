@@ -5,11 +5,11 @@ from datetime import datetime
 from tracker import classify
 
 WEBHOOK_URL    = os.getenv("DISCORD_WEBHOOK")
-print(f"[DEBUG] WEBHOOK_URL = '{WEBHOOK_URL}'")
 CHAR_LIMIT     = 1900
 QUADRANT_ORDER = ["Leading", "Improving", "Weakening"]
 QUADRANT_EMOJI = {"Leading": "🟢", "Improving": "🔵", "Weakening": "🟠"}
 
+print(f"[DEBUG] WEBHOOK_URL = '{WEBHOOK_URL}'")
 
 # ── Discord primitives ─────────────────────────────────────────────────────────
 
