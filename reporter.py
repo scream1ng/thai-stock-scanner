@@ -276,7 +276,9 @@ def _sector_table(results: list) -> list:
 
 # ── Main report ────────────────────────────────────────────────────────────────
 
-def send_report(results: list, trends: dict, today: str, top_sectors: list | None = None):
+def send_report(results: list, trends: dict, today: str,
+                top_sectors: list | None = None,
+                headlines_text: str | None = None):
     date_str = datetime.now().strftime("%Y-%m-%d %H:%M")
 
     # Group by quadrant
@@ -297,16 +299,19 @@ def send_report(results: list, trends: dict, today: str, top_sectors: list | Non
             })
 
     total = sum(len(v) for v in groups.values())
-    sector_note = f"  |  Sectors: {', '.join(top_sectors)}" if top_sectors else ""
 
     # ── Create forum thread ───────────────────────────────────────────────────
+    parts = [
+        f"📊 **Thai RS Report** — {date_str}",
+        "",
+        f"🔎 {total} stocks above SMA50",
+    ]
+    if headlines_text:
+        parts += ["", "─" * 32, "", headlines_text]
+
     thread_id = _create_thread(
         thread_name=f"RS Report · {today}",
-        content=(
-            f"📊 **Thai RS Report** — {date_str}\n"
-            f"🔎 {total} stocks above SMA50{sector_note}\n"
-            f"🔥 = Vol ≥1.5x  ⭐ = 52W High 95%+  📍 = 52W High 85%+  ☑️ = Tight Base  ❌ = Overstretched STR>7"
-        ),
+        content="\n".join(parts),
     )
 
     # ── Scatter chart ─────────────────────────────────────────────────────────

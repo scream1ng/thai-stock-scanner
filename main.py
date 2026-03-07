@@ -8,6 +8,7 @@ load_dotenv()
 from scanner import run_scan
 from tracker import load_history, analyze_trends, get_top_sectors
 from reporter import send_report
+from news import get_headlines, format_headlines
 
 
 def main():
@@ -29,7 +30,7 @@ def main():
             json.dump(all_results, f, indent=2)
         print(f"  Saved {len(all_results)} stocks → {snapshot_path}")
 
-    # ── Sector rotation (for context only, not a filter) ──────────────────────
+    # ── Sector rotation ────────────────────────────────────────────────────────
     top_sectors = get_top_sectors(all_results, top_n=3)
 
     # ── Trends ────────────────────────────────────────────────────────────────
@@ -37,9 +38,16 @@ def main():
     history = load_history("data", days=6)
     trends  = analyze_trends(history, today)
 
-    # ── Report (all stocks, no sector filter) ─────────────────────────────────
+    # ── Headlines ─────────────────────────────────────────────────────────────
+    print("Fetching headlines...")
+    headlines = get_headlines(max_per_source=5)
+    headlines_text = format_headlines(headlines)
+
+    # ── Report ────────────────────────────────────────────────────────────────
     print("Sending report...")
-    send_report(all_results, trends, today, top_sectors=top_sectors)
+    send_report(all_results, trends, today,
+                top_sectors=top_sectors,
+                headlines_text=headlines_text)
     print("Done ✅")
 
 

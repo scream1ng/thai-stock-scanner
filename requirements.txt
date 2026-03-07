@@ -4,3 +4,4 @@ yfinance
 numpy
 python-dotenv
 matplotlib
+feedparser
