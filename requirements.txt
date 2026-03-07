@@ -3,3 +3,4 @@ pandas
 yfinance
 numpy
 python-dotenv
+matplotlib
