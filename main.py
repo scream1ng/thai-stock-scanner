@@ -1,6 +1,9 @@
 import json
 import os
 from datetime import datetime
+from dotenv import load_dotenv
+
+load_dotenv()
 
 from scanner import run_scan
 from tracker import load_history, analyze_trends
