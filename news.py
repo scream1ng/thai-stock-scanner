@@ -1,29 +1,9 @@
-import time
-
-
-
-
 # ── Gemini briefing ────────────────────────────────────────────────────────────
 
 import os
 from collections import defaultdict
+import google.generativeai as genai
 
-try:
-    import google.generativeai as genai
-    _api_key = os.getenv("GEMINI_API_KEY")
-    if _api_key:
-        genai.configure(api_key=_api_key)
-        _model = None
-        for model_name in ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-2.5-flash-lite"]:
-            try:
-                _model = genai.GenerativeModel(model_name)
-                _model_name = model_name
-                break
-            except Exception:
-                continue
-    else:
-        _model = None
-        _model_name = None
 except ImportError:
     _model = None
     _model_name = None
@@ -98,10 +78,6 @@ def _build_prompt(summary: dict, date: str) -> str:
             )
         return "\n".join(rows) or "  (none)"
 
-    sectors   = "\n".join(
-        f"  {s[0]:<30} MOM: {s[1]}  tickers: {', '.join(s[2])}"
-        for s in summary["top_sectors"]
-    )
     stretched = "\n".join(
         f"  {s['ticker']:<12} STR:{s['str']:>5.2f}  VOL:{s['vol']:>4.1f}x  52W:{s['prox']:>5.1f}%"
         for s in summary["overstretched"]
@@ -110,8 +86,6 @@ def _build_prompt(summary: dict, date: str) -> str:
     # Build sector context from top sectors
     sector_context = ""
     for sec, avg_mom, tickers in summary["top_sectors"][:5]:
-        # Find stocks in this sector from leading/improving
-        sec_stocks = [s for s in summary["top_leading"] + summary["top_improving"] if True]
         sector_context += f"- {sec}: MOM {avg_mom} | tickers: {', '.join(tickers)}\n"
 
     return f"""
@@ -125,7 +99,6 @@ def _build_prompt(summary: dict, date: str) -> str:
 - ห้ามใช้ประโยคซ้ำกันระหว่างหุ้น
 - ใช้ความรู้เกี่ยวกับแต่ละเซกเตอร์เพื่อสนับสนุนการวิเคราะห์
 - ต้องใช้รูปแบบตัวอย่างด้านล่างเป๊ะทุกอย่าง ห้ามเพิ่มหัวข้อหรือเปลี่ยนโครงสร้าง
-- ความยาวรวมทั้งหมดต้องไม่เกิน 1800 ตัวอักษร
 - หุ้นในกลุ่ม Leading ให้แสดง RS, หุ้นในกลุ่ม Improving ให้แสดง MOM แทน RS เพราะ MOM สะท้อน momentum ระยะสั้นได้ดีกว่า
 
 ## ข้อมูลเทคนิค (คัดกรองเฉพาะหุ้นที่ราคา > SMA50)
@@ -168,28 +141,9 @@ Overstretched — STR≥7 ห้ามแนะนำเด็ดขาด:
 - Macro & Sector Drive: 3 เซกเตอร์ แต่ละเซกเตอร์ 1 บรรทัดสั้น + Picks 2-3 ตัว
 - Top Pick Stocks: 4 ตัวที่ดีที่สุด ห้ามใส่หุ้นจาก Overstretched
 - Avoid Today: หุ้น STR >= 7 เท่านั้น
-- ความยาวรวมทั้งหมดต้องไม่เกิน 1800 ตัวอักษร
 - หุ้นในกลุ่ม Leading ให้แสดง RS, หุ้นในกลุ่ม Improving ให้แสดง MOM แทน RS เพราะ MOM สะท้อน momentum ระยะสั้นได้ดีกว่า
 
 """.strip()
-
-
-def _build_rotation_alert(summary: dict) -> str:
-    """Build Rotation Alert section directly from data."""
-    lines = ["Rotation Alert:"]
-    for sec, avg_mom, tickers in summary["top_sectors"][:3]:
-        lines.append(f"- {sec} MOM {avg_mom} — {', '.join(tickers)}")
-    return "\n".join(lines)
-
-
-def _build_avoid_today(summary: dict) -> str:
-    """Build Avoid Today section directly from data."""
-    if not summary["overstretched"]:
-        return ""
-    lines = ["Avoid Today:"]
-    for s in summary["overstretched"]:
-        lines.append(f"- {s['ticker']} STR {s['str']:.2f} — ราคาวิ่งไกลเกินฐาน ไม่คุ้มเสี่ยงไล่ราคา")
-    return "\n".join(lines)
 
 
 def generate_briefing(stocks: list, date: str) -> str:
@@ -202,7 +156,7 @@ def generate_briefing(stocks: list, date: str) -> str:
     summary = _summarize(stocks)
     prompt  = _build_prompt(summary, date)
 
-    for model_name in ["gemini-2.5-flash", "gemini-2.0-flash"]:
+    for model_name in ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-2.5-flash-lite"]:
         try:
             print(f"  Trying model: {model_name}")
             model    = genai.GenerativeModel(model_name)

@@ -99,40 +99,6 @@ def _send_chunked(header: str, lines: list, thread_id: str | None = None):
         _post(f"```\n{chunk}```", thread_id)
 
 
-def _post_embed(title: str, description: str, color: int, thread_id: str | None = None):
-    """Post a Discord embed with colored left bar."""
-    if not WEBHOOK_URL:
-        print(f"[{title}]\n{description}\n")
-        return
-    print(f"  posting embed: {title[:40]} | desc={len(description)} chars")
-    url = f"{WEBHOOK_URL}?thread_id={thread_id}" if thread_id else WEBHOOK_URL
-    # Discord limits: title 256, description 4096
-    title       = title[:256]
-    description = description[:4096]
-    payload = {"embeds": [{"title": title, "description": description, "color": color}]}
-    for attempt in range(5):
-        resp = requests.post(url, json=payload, timeout=15)
-        if resp.status_code == 429:
-            wait = float(resp.json().get("retry_after", 2)) + 1
-            time.sleep(wait)
-            continue
-        if not resp.ok:
-            print(f"[ERROR] embed failed {resp.status_code}: {resp.text[:200]}")
-            return  # don't raise — skip bad embed and continue report
-        time.sleep(1.5)
-        return
-
-
-def _post_briefing_embeds(briefing: str, thread_id: str | None = None):
-    """Post briefing split into Discord-safe chunks."""
-    if not briefing:
-        print("  ⚠ briefing is empty — nothing to post")
-        return
-    print(f"  briefing total length: {len(briefing)} chars")
-    lines = briefing.split("\n")
-    _send_chunked("📊 **Market Briefing**", lines, thread_id)
-
-
 # ── Row formatters ─────────────────────────────────────────────────────────────
 
 def _stock_row(ticker, rs_rating, rs_momentum, stretch_factor, sector,
@@ -321,8 +287,6 @@ def _sector_table(results: list) -> list:
 # ── Main report ────────────────────────────────────────────────────────────────
 
 def send_report(results: list, trends: dict, today: str,
-                top_sectors: list | None = None,
-                headlines_text: str | None = None,
                 briefing: str | None = None):
     date_str = datetime.now().strftime("%Y-%m-%d %H:%M")
 

@@ -15,7 +15,7 @@ os.environ["MARKET"] = MARKET  # set before importing config
 
 from config import CFG
 from scanner import run_scan
-from tracker import load_history, analyze_trends, get_top_sectors, classify
+from tracker import load_history, analyze_trends, classify
 from reporter import send_report
 from news import generate_briefing
 
@@ -70,9 +70,6 @@ def main():
             json.dump(all_results, f, indent=2)
         print(f"  Saved {len(all_results)} stocks → {snapshot_path}")
 
-    # ── Sector rotation ────────────────────────────────────────────────────────
-    top_sectors = get_top_sectors(all_results, top_n=3)
-
     # ── Trends ────────────────────────────────────────────────────────────────
     print("Analysing trends...")
     history = load_history(data_dir, days=6)
@@ -112,7 +109,6 @@ def main():
     # ── Live: send to Discord ─────────────────────────────────────────────────
     print("Sending report...")
     send_report(all_results, trends, today,
-                top_sectors=top_sectors,
                 briefing=briefing)
     print("Done ✅")
 
