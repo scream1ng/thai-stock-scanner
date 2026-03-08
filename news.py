@@ -2,11 +2,11 @@
 
 import os
 from collections import defaultdict
-import google.generativeai as genai
 
+try:
+    import google.generativeai as genai
 except ImportError:
-    _model = None
-    _model_name = None
+    genai = None
 
 
 def _summarize(stocks: list) -> dict:
@@ -156,7 +156,7 @@ def generate_briefing(stocks: list, date: str) -> str:
     summary = _summarize(stocks)
     prompt  = _build_prompt(summary, date)
 
-    for model_name in ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-2.5-flash-lite"]:
+    for model_name in ["gemini-2.5-flash", "gemini-2.0-flash"]:
         try:
             print(f"  Trying model: {model_name}")
             model    = genai.GenerativeModel(model_name)
