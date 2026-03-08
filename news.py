@@ -276,21 +276,21 @@ Global Headlines:
 
 ---
 
-โครงสร้าง (หัวข้อภาษาอังกฤษ เนื้อหาภาษาไทย):
+โครงสร้าง (หัวข้อภาษาอังกฤษ เนื้อหาภาษาไทย เรียงตามลำดับนี้เท่านั้น):
+
+Macro Flag:
+- [ประเด็นข่าว] — กระทบ TICKER1, TICKER2 [บวก/ลบ]
 
 Rotation Alert:
 - ชื่อเซกเตอร์ MOM xx.x — TICKER1, TICKER2, TICKER3
 (แสดง 3 เซกเตอร์ ไม่ต้องมีคำอธิบายเพิ่ม)
 
-Avoid Today:
-- TICKER STR xx.xx — เหตุผลสั้นที่แตกต่างกันแต่ละตัว ใช้ค่า STR จริง ห้ามปัดเลข
-
-Macro Flag:
-- [ประเด็นข่าว] — กระทบ TICKER1, TICKER2 [บวก/ลบ]
-
-Start Here:
+Stock Highlight:
 (ห้ามใส่หุ้นที่อยู่ใน Avoid Today เด็ดขาด เหตุผลต้องแตกต่างกันแต่ละตัว)
 - TICKER RS: xx.x MOM: xx.x VOL: x.xx STR: x.xx — [เหตุผลเฉพาะตัว ห้ามพูดว่า Volume สูง]
+
+Avoid Today:
+- TICKER STR xx.xx — เหตุผลสั้นที่แตกต่างกันแต่ละตัว ใช้ค่า STR จริง ห้ามปัดเลข
 """.strip()
 
 
