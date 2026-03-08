@@ -25,9 +25,10 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Check secret
+      - name: Check secrets
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           if [ -z "$DISCORD_WEBHOOK" ]; then
             echo "ERROR: DISCORD_WEBHOOK is empty"
@@ -35,10 +36,16 @@ jobs:
           else
             echo "OK: DISCORD_WEBHOOK is set (${#DISCORD_WEBHOOK} chars)"
           fi
+          if [ -z "$GEMINI_API_KEY" ]; then
+            echo "WARNING: GEMINI_API_KEY is empty — briefing will be skipped"
+          else
+            echo "OK: GEMINI_API_KEY is set (${#GEMINI_API_KEY} chars)"
+          fi
 
       - name: Run daily scan
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python main.py
 
       - name: Commit data snapshot

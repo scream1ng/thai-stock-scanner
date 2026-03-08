@@ -278,7 +278,8 @@ def _sector_table(results: list) -> list:
 
 def send_report(results: list, trends: dict, today: str,
                 top_sectors: list | None = None,
-                headlines_text: str | None = None):
+                headlines_text: str | None = None,
+                briefing: str | None = None):
     date_str = datetime.now().strftime("%Y-%m-%d %H:%M")
 
     # Group by quadrant
@@ -303,11 +304,13 @@ def send_report(results: list, trends: dict, today: str,
     # ── Create forum thread ───────────────────────────────────────────────────
     parts = [
         f"📊 **Thai RS Report** — {date_str}",
-        "",
         f"🔎 {total} stocks above SMA50",
     ]
-    if headlines_text:
-        parts += ["", "─" * 32, "", headlines_text]
+    if briefing:
+        # Trim briefing to fit Discord 2000 char thread limit
+        header_base = "\n".join(parts) + "\n\n" + "─" * 32 + "\n\n"
+        max_briefing = 2000 - len(header_base) - 10
+        parts += ["", "─" * 32, "", briefing[:max_briefing]]
 
     thread_id = _create_thread(
         thread_name=f"RS Report · {today}",

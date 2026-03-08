@@ -8,7 +8,7 @@ load_dotenv()
 from scanner import run_scan
 from tracker import load_history, analyze_trends, get_top_sectors
 from reporter import send_report
-from news import get_headlines, format_headlines
+from news import get_headlines, format_headlines, generate_briefing
 
 
 def main():
@@ -38,16 +38,20 @@ def main():
     history = load_history("data", days=6)
     trends  = analyze_trends(history, today)
 
-    # ── Headlines ─────────────────────────────────────────────────────────────
+    # ── Headlines + briefing ──────────────────────────────────────────────────
     print("Fetching headlines...")
-    headlines = get_headlines(max_per_source=5)
-    headlines_text = format_headlines(headlines)
+    grouped        = get_headlines(max_per_source=6)
+    headlines_text = format_headlines(grouped)
+
+    print("Generating market briefing...")
+    briefing = generate_briefing(all_results, grouped, today)
 
     # ── Report ────────────────────────────────────────────────────────────────
     print("Sending report...")
     send_report(all_results, trends, today,
                 top_sectors=top_sectors,
-                headlines_text=headlines_text)
+                headlines_text=headlines_text,
+                briefing=briefing)
     print("Done ✅")
 
 
