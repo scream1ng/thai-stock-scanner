@@ -249,7 +249,7 @@ def _build_prompt(summary: dict, headlines: str, date: str) -> str:
 
 บทบาท: เราจะนั่งดูกราฟทุกตัวใน watchlist อยู่แล้ว ต้องการเฉพาะสิ่งที่อาจมองข้ามถ้าไม่บอก
 ห้ามมีหัวข้อ "สิ่งที่ต้องจำขณะดูกราฟ" หรือ "สิ่งที่ถ้าไม่บอกอาจมองข้าม" ในคำตอบ
-ให้เริ่มต้นด้วย Market Tone: ทันที
+ให้เริ่มต้นด้วย Rotation Alert: ทันที
 
 ## ข้อมูล (คัดกรองเฉพาะหุ้นที่ราคา > SMA50 และ turnover ผ่านเกณฑ์)
 
@@ -277,11 +277,6 @@ Global Headlines:
 ---
 
 โครงสร้าง (หัวข้อภาษาอังกฤษ เนื้อหาภาษาไทย):
-
-Market Tone:
-- Leading xx | Improving xx | Weakening xx | Lagging xx
-- [อัตราส่วน Leading:Weakening บอกอะไร]
-- [Improving vs Lagging บอกอะไร — ย้ำว่าข้อมูลนี้ไม่ใช่ภาพรวมตลาดทั้งหมด]
 
 Rotation Alert:
 - ชื่อเซกเตอร์ MOM xx.x — TICKER1, TICKER2, TICKER3

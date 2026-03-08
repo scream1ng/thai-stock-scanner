@@ -3,6 +3,7 @@ import io
 import time
 import requests
 import matplotlib
+from config import CFG, MARKET
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
@@ -303,7 +304,7 @@ def send_report(results: list, trends: dict, today: str,
 
     # ── Create forum thread ───────────────────────────────────────────────────
     parts = [
-        f"📊 **Thai RS Report** — {date_str}",
+        f"📊 **{CFG['name']} RS Report** — {date_str}",
         f"🔎 {total} stocks above SMA50",
     ]
     if briefing:
@@ -313,7 +314,7 @@ def send_report(results: list, trends: dict, today: str,
         parts += ["", "─" * 32, "", briefing[:max_briefing]]
 
     thread_id = _create_thread(
-        thread_name=f"RS Report · {today}",
+        thread_name=f"{CFG['name']} Report · {today}",
         content="\n".join(parts),
     )
 

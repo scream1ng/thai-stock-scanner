@@ -3,8 +3,9 @@ import pandas as pd
 import yfinance as yf
 import numpy as np
 import time
+from config import CFG
 
-BENCHMARK = "^SET.BK"
+BENCHMARK = CFG["benchmark"]
 
 
 # ── Core math ─────────────────────────────────────────────────────────────────
@@ -36,7 +37,7 @@ def f_calc_final_rating(score):
 
 def get_thailand_stocks():
     print("Fetching stock list from TradingView...")
-    url = "https://scanner.tradingview.com/thailand/scan"
+    url = f"https://scanner.tradingview.com/{CFG['tv_market']}/scan"
     payload = {
         "filter": [{"left": "type", "operation": "equal", "right": "stock"}],
         "columns": [
@@ -61,13 +62,14 @@ def get_thailand_stocks():
 
         if ".F" in ticker or ".R" in ticker:
             continue
-        if price * avg_vol < 5_000_000:
+        if price * avg_vol < CFG["min_turnover"]:
             continue
         if sma50 and price < sma50:
             continue
 
+        suffix = CFG["ticker_suffix"]
         rows.append({
-            "ticker_bk": f"{ticker}.BK",
+            "ticker_bk": f"{ticker}{suffix}",
             "sector":    sector or "Unknown",
             "desc":      desc or ticker,
             "tv": {
@@ -196,7 +198,7 @@ def run_scan():
 
     for i, stock in enumerate(stock_list):
         try:
-            print(f"  [{i+1}/{total}] {stock['ticker_bk']:<14}", end="\r")
+            print(f"  [{i+1}/{total}] {stock['ticker_bk']:<16}", end="\r")
             data = run_technical_analysis(stock)
             if data:
                 results.append(data)
