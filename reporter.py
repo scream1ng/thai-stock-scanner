@@ -55,11 +55,11 @@ def _post(content: str, thread_id: str | None = None, retries: int = 5):
             time.sleep(wait)
             continue
         if not resp.ok:
-            print(f"[ERROR] {resp.status_code}: {resp.text}")
-            resp.raise_for_status()
+            print(f"[ERROR] _post {resp.status_code}: {resp.text[:300]}")
+            return  # skip and continue — don't crash the report
         time.sleep(1.5)  # 1.5s between every message (GitHub Actions safe)
         return
-    raise Exception(f"Failed after {retries} retries: {resp.status_code}")
+    print(f"[ERROR] _post gave up after {retries} retries")
 
 
 def _post_file(filename: str, file_bytes: bytes, content: str = "", thread_id: str | None = None):
@@ -97,6 +97,40 @@ def _send_chunked(header: str, lines: list, thread_id: str | None = None):
             chunk = candidate
     if chunk.strip():
         _post(f"```\n{chunk}```", thread_id)
+
+
+def _post_embed(title: str, description: str, color: int, thread_id: str | None = None):
+    """Post a Discord embed with colored left bar."""
+    if not WEBHOOK_URL:
+        print(f"[{title}]\n{description}\n")
+        return
+    print(f"  posting embed: {title[:40]} | desc={len(description)} chars")
+    url = f"{WEBHOOK_URL}?thread_id={thread_id}" if thread_id else WEBHOOK_URL
+    # Discord limits: title 256, description 4096
+    title       = title[:256]
+    description = description[:4096]
+    payload = {"embeds": [{"title": title, "description": description, "color": color}]}
+    for attempt in range(5):
+        resp = requests.post(url, json=payload, timeout=15)
+        if resp.status_code == 429:
+            wait = float(resp.json().get("retry_after", 2)) + 1
+            time.sleep(wait)
+            continue
+        if not resp.ok:
+            print(f"[ERROR] embed failed {resp.status_code}: {resp.text[:200]}")
+            return  # don't raise — skip bad embed and continue report
+        time.sleep(1.5)
+        return
+
+
+def _post_briefing_embeds(briefing: str, thread_id: str | None = None):
+    """Post briefing split into Discord-safe chunks."""
+    if not briefing:
+        print("  ⚠ briefing is empty — nothing to post")
+        return
+    print(f"  briefing total length: {len(briefing)} chars")
+    lines = briefing.split("\n")
+    _send_chunked("📊 **Market Briefing**", lines, thread_id)
 
 
 # ── Row formatters ─────────────────────────────────────────────────────────────
@@ -317,14 +351,11 @@ def send_report(results: list, trends: dict, today: str,
         f"🔎 {total} stocks above SMA50",
     ]
     if briefing:
-        # Trim briefing to fit Discord 2000 char thread limit
-        header_base = "\n".join(parts) + "\n\n" + "─" * 32 + "\n\n"
-        max_briefing = 2000 - len(header_base) - 10
-        parts += ["", "─" * 32, "", briefing[:max_briefing]]
+        parts += ["", "─" * 32, "", briefing]
 
     thread_id = _create_thread(
         thread_name=f"{CFG['name']} Report · {today}",
-        content="\n".join(parts),
+        content="\n".join(parts)[:2000],
     )
 
     # ── Scatter chart ─────────────────────────────────────────────────────────

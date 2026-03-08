@@ -1,143 +1,6 @@
-import feedparser
 import time
-from datetime import datetime, timezone
-
-# ── RSS Sources ────────────────────────────────────────────────────────────────
-
-FEEDS = [
-    {
-        "name": "Bloomberg",
-        "url":  "https://feeds.bloomberg.com/markets/news.rss",
-    },
-    {
-        "name": "Yahoo Finance",
-        "url":  "https://finance.yahoo.com/rss/topfinstories",
-    },
-]
-
-MAX_HEADLINES = 5   # total headlines across all sources
-MAX_AGE_HOURS = 24  # ignore news older than this
 
 
-# ── Helpers ────────────────────────────────────────────────────────────────────
-
-def _parse_feed(feed_info: dict) -> list[dict]:
-    """Fetch and parse a single RSS feed. Returns list of {title, source, age_h}."""
-    try:
-        feed = feedparser.parse(feed_info["url"])
-        results = []
-        now = datetime.now(timezone.utc)
-
-        for entry in feed.entries[:10]:
-            title = entry.get("title", "").strip()
-            if not title:
-                continue
-
-            # Parse publish time if available
-            published = entry.get("published_parsed") or entry.get("updated_parsed")
-            if published:
-                pub_dt  = datetime(*published[:6], tzinfo=timezone.utc)
-                age_h   = (now - pub_dt).total_seconds() / 3600
-            else:
-                age_h = 0  # unknown age — include anyway
-
-            # Format publish date as YYYY-MM-DD
-            if published:
-                from datetime import datetime as dt
-                pub_date = dt(*published[:3]).strftime("%Y-%m-%d")
-            else:
-                pub_date = ""
-
-            if age_h <= MAX_AGE_HOURS:
-                results.append({
-                    "title":     title,
-                    "source":    feed_info["name"],
-                    "age_h":     round(age_h, 1),
-                    "published": pub_date,
-                    "url":       entry.get("link", ""),
-                })
-
-        return results
-    except Exception as e:
-        print(f"  ⚠ News feed failed ({feed_info['name']}): {e}")
-        return []
-
-
-# ── Public entry point ─────────────────────────────────────────────────────────
-
-def get_headlines(max_per_source: int = 5) -> dict[str, list[dict]]:
-    """
-    Fetch headlines grouped by source.
-    Returns {source_name: [headlines]} dict.
-    """
-    grouped = {}
-    for feed in FEEDS:
-        items = _parse_feed(feed)
-        # Deduplicate within source
-        seen, unique = [], []
-        for h in items:
-            key = " ".join(h["title"].lower().split()[:6])
-            if key not in seen:
-                seen.append(key)
-                unique.append(h)
-        grouped[feed["name"]] = unique[:max_per_source]
-        time.sleep(0.3)
-    return grouped
-
-
-def format_headlines(grouped: dict[str, list[dict]]) -> str:
-    """Format headlines grouped by source for Discord."""
-    if not grouped or all(len(v) == 0 for v in grouped.values()):
-        return "📰 No recent headlines available"
-
-    lines = ["📰 **Market Headlines**"]
-    for source, headlines in grouped.items():
-        if not headlines:
-            continue
-        lines.append(f"\n=== {source} ===")
-        for h in headlines:
-            # Show date only if available
-            published = h.get("published", "")
-            date_str  = f"  [{published}]" if published else ""
-            lines.append(f"- {h['title']}{date_str}")
-
-    return "\n".join(lines)
-
-# ── Keyword filter ─────────────────────────────────────────────────────────────
-
-RELEVANT_KEYWORDS = [
-    "thailand", "thai", "baht", "set index", "asean",
-    "fed", "federal reserve", "rate", "interest rate", "inflation", "cpi",
-    "gdp", "recession", "us economy", "dollar", "dxy", "treasury", "yield",
-    "tariff", "trade war", "sanction", "powell",
-    "china", "chinese", "yuan", "pmi", "asia", "emerging market",
-    "japan", "yen", "korea", "vietnam",
-    "oil", "crude", "opec", "energy", "gas", "lng",
-    "gold", "copper", "commodity", "supply chain",
-    "rubber", "rice", "sugar", "palm",
-    "war", "conflict", "attack", "iran", "israel",
-    "russia", "ukraine", "taiwan", "strait", "blockade", "middle east", "hormuz",
-    "rally", "crash", "selloff", "volatility", "risk off", "risk on",
-    "tourism", "tourist", "travel", "airline",
-]
-
-
-def _is_relevant(title: str) -> bool:
-    t = title.lower()
-    return any(kw in t for kw in RELEVANT_KEYWORDS)
-
-
-def get_relevant_flat(grouped: dict[str, list[dict]]) -> str:
-    """Return filtered headlines as a flat string for Gemini prompt."""
-    lines = []
-    for source, headlines in grouped.items():
-        relevant = [h for h in headlines if _is_relevant(h["title"])]
-        if not relevant:
-            continue
-        lines.append(f"=== {source} ===")
-        for h in relevant:
-            lines.append(f"- {h['title']}")
-    return "\n".join(lines) if lines else "No relevant headlines today"
 
 
 # ── Gemini briefing ────────────────────────────────────────────────────────────
@@ -150,11 +13,20 @@ try:
     _api_key = os.getenv("GEMINI_API_KEY")
     if _api_key:
         genai.configure(api_key=_api_key)
-        _model = genai.GenerativeModel("gemini-2.5-flash-lite")
+        _model = None
+        for model_name in ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-2.5-flash-lite"]:
+            try:
+                _model = genai.GenerativeModel(model_name)
+                _model_name = model_name
+                break
+            except Exception:
+                continue
     else:
         _model = None
+        _model_name = None
 except ImportError:
     _model = None
+    _model_name = None
 
 
 def _summarize(stocks: list) -> dict:
@@ -210,7 +82,7 @@ def _summarize(stocks: list) -> dict:
     }
 
 
-def _build_prompt(summary: dict, headlines: str, date: str) -> str:
+def _build_prompt(summary: dict, date: str) -> str:
 
     def fmt(stocks, n=6):
         rows = []
@@ -235,76 +107,115 @@ def _build_prompt(summary: dict, headlines: str, date: str) -> str:
         for s in summary["overstretched"]
     ) or "  (none)"
 
+    # Build sector context from top sectors
+    sector_context = ""
+    for sec, avg_mom, tickers in summary["top_sectors"][:5]:
+        # Find stocks in this sector from leading/improving
+        sec_stocks = [s for s in summary["top_leading"] + summary["top_improving"] if True]
+        sector_context += f"- {sec}: MOM {avg_mom} | tickers: {', '.join(tickers)}\n"
+
     return f"""
-คุณคือนักเทรดหุ้นไทยที่มีประสบการณ์ กำลังสรุปตลาดให้ตัวเองก่อนดูกราฟ
+คุณคือนักวิเคราะห์หุ้นอาวุโสที่ผสมการวิเคราะห์ทางเทคนิคกับข่าวเศรษฐกิจ
 วันที่ {date}
 
 กฎเด็ดขาด:
 - ตอบเป็นภาษาไทยเท่านั้น
-- ห้ามใช้ ** หรือ ## หรือ markdown ใดๆ
-- ใช้ - สำหรับ bullet, : สำหรับหัวข้อ
-- ใช้เฉพาะข้อมูลที่ให้มา ห้ามพูดถึง RSI, MACD, Overbought, Oversold
-- เวลาพูดถึง Volume ต้องบอกตัวเลขเสมอ ห้ามพูดว่า "Volume สูง" หรือ "พร้อม Volume"
+- ห้ามใช้ ** หรือ ## หรือ markdown ใดๆ ทั้งสิ้น
+- ห้ามพูดถึง RSI, MACD, Overbought, Oversold
 - ห้ามใช้ประโยคซ้ำกันระหว่างหุ้น
+- ใช้ความรู้เกี่ยวกับแต่ละเซกเตอร์เพื่อสนับสนุนการวิเคราะห์
+- ต้องใช้รูปแบบตัวอย่างด้านล่างเป๊ะทุกอย่าง ห้ามเพิ่มหัวข้อหรือเปลี่ยนโครงสร้าง
+- ความยาวรวมทั้งหมดต้องไม่เกิน 1800 ตัวอักษร
+- หุ้นในกลุ่ม Leading ให้แสดง RS, หุ้นในกลุ่ม Improving ให้แสดง MOM แทน RS เพราะ MOM สะท้อน momentum ระยะสั้นได้ดีกว่า
 
-บทบาท: เราจะนั่งดูกราฟทุกตัวใน watchlist อยู่แล้ว ต้องการเฉพาะสิ่งที่อาจมองข้ามถ้าไม่บอก
-ห้ามมีหัวข้อ "สิ่งที่ต้องจำขณะดูกราฟ" หรือ "สิ่งที่ถ้าไม่บอกอาจมองข้าม" ในคำตอบ
-ให้เริ่มต้นด้วย Rotation Alert: ทันที
+## ข้อมูลเทคนิค (คัดกรองเฉพาะหุ้นที่ราคา > SMA50)
 
-## ข้อมูล (คัดกรองเฉพาะหุ้นที่ราคา > SMA50 และ turnover ผ่านเกณฑ์)
-
-Market Structure:
-- Leading  (RS≥75, MOM≥75): {summary['counts']['Leading']} stocks
-- Improving (RS<75, MOM≥75): {summary['counts']['Improving']} stocks
-- Weakening (RS≥75, MOM<75): {summary['counts']['Weakening']} stocks
-- Lagging:                    {summary['counts']['Lagging']} stocks
-
-Top Leading (VOL≥1.0x, STR<7):
+Top Leading — VOL≥1.0x, STR<7:
 {fmt(summary['top_leading'])}
 
-Top Improving (VOL≥1.0x, STR<7):
+Top Improving — VOL≥1.0x, STR<7:
 {fmt(summary['top_improving'])}
 
-Overstretched (STR≥7 — ห้ามไล่ราคา):
+Top Sectors by MOM:
+{sector_context}
+Overstretched — STR≥7 ห้ามแนะนำเด็ดขาด:
 {stretched}
-
-Sector Momentum Ranking:
-{sectors}
-
-Global Headlines:
-{headlines}
 
 ---
 
-โครงสร้าง (หัวข้อภาษาอังกฤษ เนื้อหาภาษาไทย เรียงตามลำดับนี้เท่านั้น):
+ตัวอย่างรูปแบบที่ต้องการ (ใช้โครงสร้างนี้เป๊ะ):
 
-Macro Flag:
-- [ประเด็นข่าว] — กระทบ TICKER1, TICKER2 [บวก/ลบ]
+🌍 Macro & Sector Drive
+* 🛢️ Energy & Refinery (RS 90+): UAE/คูเวตลดผลิต + ฮอร์มุซโดนปิด ดันค่าการกลั่นพุ่ง
+   * Picks: PTTEP, SPRC, BCP
+* 🚢 Logistics & Marine (RS 85+): ค่าระวางเรือ BDI ขยับแรงตามความเสี่ยงภูมิรัฐศาสตร์
+   * Picks: SEAOIL, PSL, RCL
+* 🏗️ Infrastructure (RS 98): งานประมูลรัฐ 5 แสนล้านเริ่มเดินเครื่อง Backlog แน่น
+   * Picks: STECON, PYLON
 
-Rotation Alert:
-- ชื่อเซกเตอร์ MOM xx.x — TICKER1, TICKER2, TICKER3
-(แสดง 3 เซกเตอร์ ไม่ต้องมีคำอธิบายเพิ่ม)
+🏆 Top Pick Stocks
+1. THCOM (RS 91.5): 🛰️ จ่อส่งดาวเทียมดวงใหม่ + รุกตลาดอินเดียเต็มตัว
+2. STECON (RS 98.0): 🏗️ เป้างานใหม่ปีนี้ 5 หมื่นล้าน การเมืองนิ่งหนุนโปรเจกต์ยักษ์
+3. SEAOIL (RS 94.5): ⛽ วิ่งแรงตามราคาน้ำมัน + ค่าขนส่งทางเรือทำ High ในรอบปี
+4. HANA (MOM 90.4): 🔬 รับอานิสงส์บาทอ่อน + ดีมานด์ชิป AI พุ่ง
 
-Stock Highlight:
-(ห้ามใส่หุ้นที่อยู่ใน Avoid Today เด็ดขาด เหตุผลต้องแตกต่างกันแต่ละตัว)
-- TICKER RS: xx.x MOM: xx.x VOL: x.xx STR: x.xx — [เหตุผลเฉพาะตัว ห้ามพูดว่า Volume สูง]
+⚠️ Avoid Today
+* BIZ (STR 10.01) / MCOT (STR 8.39) — วิ่งไกลเกินฐาน ระวังแรงขายทำกำไร
 
-Avoid Today:
-- TICKER STR xx.xx — เหตุผลสั้นที่แตกต่างกันแต่ละตัว ใช้ค่า STR จริง ห้ามปัดเลข
+---
+
+ตอนนี้สร้างรายงานจริงสำหรับวันที่ {date} โดยใช้ข้อมูลเทคนิคที่ให้มา
+- Macro & Sector Drive: 3 เซกเตอร์ แต่ละเซกเตอร์ 1 บรรทัดสั้น + Picks 2-3 ตัว
+- Top Pick Stocks: 4 ตัวที่ดีที่สุด ห้ามใส่หุ้นจาก Overstretched
+- Avoid Today: หุ้น STR >= 7 เท่านั้น
+- ความยาวรวมทั้งหมดต้องไม่เกิน 1800 ตัวอักษร
+- หุ้นในกลุ่ม Leading ให้แสดง RS, หุ้นในกลุ่ม Improving ให้แสดง MOM แทน RS เพราะ MOM สะท้อน momentum ระยะสั้นได้ดีกว่า
+
 """.strip()
 
 
-def generate_briefing(stocks: list, grouped_headlines: dict, date: str) -> str:
-    """Generate Gemini market briefing. Returns plain text or empty string."""
-    if not _model:
-        print("  ⚠ Gemini not available (no GEMINI_API_KEY) — skipping briefing")
+def _build_rotation_alert(summary: dict) -> str:
+    """Build Rotation Alert section directly from data."""
+    lines = ["Rotation Alert:"]
+    for sec, avg_mom, tickers in summary["top_sectors"][:3]:
+        lines.append(f"- {sec} MOM {avg_mom} — {', '.join(tickers)}")
+    return "\n".join(lines)
+
+
+def _build_avoid_today(summary: dict) -> str:
+    """Build Avoid Today section directly from data."""
+    if not summary["overstretched"]:
         return ""
-    try:
-        summary   = _summarize(stocks)
-        headlines = get_relevant_flat(grouped_headlines)
-        prompt    = _build_prompt(summary, headlines, date)
-        response  = _model.generate_content(prompt)
-        return response.text.strip()
-    except Exception as e:
-        print(f"  ⚠ Gemini briefing failed: {e}")
+    lines = ["Avoid Today:"]
+    for s in summary["overstretched"]:
+        lines.append(f"- {s['ticker']} STR {s['str']:.2f} — ราคาวิ่งไกลเกินฐาน ไม่คุ้มเสี่ยงไล่ราคา")
+    return "\n".join(lines)
+
+
+def generate_briefing(stocks: list, date: str) -> str:
+    """Generate market briefing using Gemini with model fallback."""
+    api_key = os.getenv("GEMINI_API_KEY")
+    if not api_key:
+        print("  ⚠ No GEMINI_API_KEY — skipping briefing")
         return ""
+
+    summary = _summarize(stocks)
+    prompt  = _build_prompt(summary, date)
+
+    for model_name in ["gemini-2.5-flash", "gemini-2.0-flash"]:
+        try:
+            print(f"  Trying model: {model_name}")
+            model    = genai.GenerativeModel(model_name)
+            response = model.generate_content(prompt)
+            print(f"  ✓ Briefing generated by {model_name}")
+            return response.text.strip()[:1900]
+        except Exception as e:
+            err = str(e)
+            if "429" in err or "quota" in err.lower():
+                print(f"  ⚠ {model_name} quota exceeded — trying next model")
+                continue
+            print(f"  ⚠ {model_name} failed: {e}")
+            return ""
+
+    print("  ⚠ All models quota exceeded — skipping briefing")
+    return ""

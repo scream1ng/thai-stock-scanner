@@ -17,7 +17,7 @@ from config import CFG
 from scanner import run_scan
 from tracker import load_history, analyze_trends, get_top_sectors, classify
 from reporter import send_report
-from news import get_headlines, format_headlines, generate_briefing
+from news import generate_briefing
 
 
 def _print_table(title, stocks):
@@ -78,13 +78,9 @@ def main():
     history = load_history(data_dir, days=6)
     trends  = analyze_trends(history, today)
 
-    # ── Headlines + briefing ──────────────────────────────────────────────────
-    print("Fetching headlines...")
-    grouped        = get_headlines(max_per_source=6)
-    headlines_text = format_headlines(grouped)
-
+    # ── Briefing (Gemini with web search) ────────────────────────────────────
     print("Generating market briefing...")
-    briefing = generate_briefing(all_results, grouped, today)
+    briefing = generate_briefing(all_results, today)
 
     # ── Preview: print everything to terminal ─────────────────────────────────
     if PREVIEW:
@@ -98,14 +94,11 @@ def main():
         print("\n" + "=" * 60)
         print(f"📊 {CFG['name']} RS Report — {today}")
         print(f"🔎 {len(all_results)} stocks above SMA50")
-        print(f"Sectors: {', '.join(top_sectors)}")
+
 
         if briefing:
             print("\n" + "─" * 40)
             print(briefing)
-
-        print("\n" + "─" * 40)
-        print(headlines_text)
 
         for label, emoji in [("Leading","🟢"), ("Improving","🔵"), ("Weakening","🟠")]:
             grp = sorted(groups[label], key=lambda x: -x["technical"]["rs_momentum"])
@@ -120,7 +113,6 @@ def main():
     print("Sending report...")
     send_report(all_results, trends, today,
                 top_sectors=top_sectors,
-                headlines_text=headlines_text,
                 briefing=briefing)
     print("Done ✅")
 

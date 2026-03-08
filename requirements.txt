@@ -4,5 +4,4 @@ yfinance
 numpy
 python-dotenv
 matplotlib
-feedparser
 google-generativeai
