@@ -240,20 +240,29 @@ def build_scatter_chart(results: list, today: str) -> bytes:
 def build_tradingview_watchlist(results: list) -> bytes:
     """
     Build a TradingView-compatible watchlist for Leading & Improving stocks.
-    Format: SET:TICKER one per line.
+    TH  → SET:PTT
+    AU  → ASX:BHP
+    US  → AAPL
     """
-    lines = ["### Leading", ]
+    suffix   = CFG["ticker_suffix"]
+    exchange = CFG["tv_exchange"]
+
+    def tv_ticker(item):
+        raw = item["ticker"].replace(suffix, "")
+        if MARKET == "us":
+            return raw
+        return f"{exchange}:{raw}"
+
     leading   = [r for r in results if classify(r["technical"]["rs_rating"], r["technical"]["rs_momentum"]) == "Leading"]
     improving = [r for r in results if classify(r["technical"]["rs_rating"], r["technical"]["rs_momentum"]) == "Improving"]
 
-    for item in sorted(leading, key=lambda x: -x["technical"]["rs_momentum"]):
-        ticker_tv = "SET:" + item["ticker"].replace(".BK", "")
-        lines.append(ticker_tv)
+    lines = ["### Leading"]
+    for item in sorted(leading,   key=lambda x: -x["technical"]["rs_momentum"]):
+        lines.append(tv_ticker(item))
 
     lines.append("### Improving")
     for item in sorted(improving, key=lambda x: -x["technical"]["rs_momentum"]):
-        ticker_tv = "SET:" + item["ticker"].replace(".BK", "")
-        lines.append(ticker_tv)
+        lines.append(tv_ticker(item))
 
     return "\n".join(lines).encode("utf-8")
 

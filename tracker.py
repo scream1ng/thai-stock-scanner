@@ -2,6 +2,7 @@ import json
 import os
 from datetime import datetime, timedelta
 from collections import defaultdict
+from config import CFG
 
 THRESHOLD = 75
 
@@ -103,7 +104,8 @@ def get_sector_summary(results: list) -> list[dict]:
             continue
         weights = [s["turnover"] for s in stocks]
         # Sort tickers by turnover descending for display
-        tickers = [s["ticker"] for s in sorted(stocks, key=lambda x: -x["turnover"])]
+        suffix  = CFG["ticker_suffix"]
+        tickers = [s["ticker"].replace(suffix, "") for s in sorted(stocks, key=lambda x: -x["turnover"])]
         summary.append({
             "sector":  sector,
             "avg_mom": round(_weighted_avg([s["mom"] for s in stocks], weights), 1),

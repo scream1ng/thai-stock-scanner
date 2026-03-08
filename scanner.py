@@ -41,7 +41,7 @@ def get_thailand_stocks():
     payload = {
         "filter": [{"left": "type", "operation": "equal", "right": "stock"}],
         "columns": [
-            "name", "description", "sector",
+            "name", "description", "sector", "exchange",
             "close", "average_volume_10d_calc",
             "SMA10", "SMA20", "SMA50", "SMA200",
             "ATR", "volume",
@@ -55,10 +55,10 @@ def get_thailand_stocks():
     rows = []
     for item in resp.json().get("data", []):
         d = item["d"]
-        ticker  = d[0];  desc = d[1];  sector = d[2]
-        price   = d[3] or 0;  avg_vol = d[4] or 0
-        sma10, sma20, sma50, sma200, atr = d[5], d[6], d[7], d[8], d[9]
-        volume  = d[10] or 0
+        ticker  = d[0];  desc = d[1];  sector = d[2]; exchange = d[3] or ""
+        price   = d[4] or 0;  avg_vol = d[5] or 0
+        sma10, sma20, sma50, sma200, atr = d[6], d[7], d[8], d[9], d[10]
+        volume  = d[11] or 0
 
         if ".F" in ticker or ".R" in ticker:
             continue
@@ -71,6 +71,7 @@ def get_thailand_stocks():
         rows.append({
             "ticker_bk": f"{ticker}{suffix}",
             "sector":    sector or "Unknown",
+            "exchange":  exchange,
             "desc":      desc or ticker,
             "tv": {
                 "price":        round(price,  2),
@@ -169,8 +170,9 @@ def run_technical_analysis(stock):
     )
 
     return {
-        "ticker": ticker_bk,
-        "sector": sector,
+        "ticker":   ticker_bk,
+        "sector":   sector,
+        "exchange": stock.get("exchange", ""),
         "technical": {
             "price":           round(price,           2),
             "sma10":           round(sma10,           2),
