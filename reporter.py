@@ -362,8 +362,8 @@ def send_report(results: list, trends: dict, today: str,
         _send_chunked(f"🆕 **New Entries** — {len(trends['entries'])} stocks", lines, thread_id)
 
     if trends["exits"]:
-        tickers = ", ".join(trends["exits"])
-        _post(f"🚪 **Exits**: {tickers}", thread_id)
+        exit_lines = [", ".join(trends["exits"][i:i+8]) for i in range(0, len(trends["exits"]), 8)]
+        _send_chunked(f"🚪 **Exits** — {len(trends['exits'])} stocks", exit_lines, thread_id)
 
     if trends["momentum_streak"]:
         lines = [_streak_row(**s) for s in trends["momentum_streak"]]

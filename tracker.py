@@ -173,28 +173,28 @@ def analyze_trends(history: dict, today: str) -> dict:
             quadrant_changes.append({
                 "ticker":      ticker,
                 "sector":      rec.get("sector", ""),
-                "from":        yest_q,
-                "to":          today_q,
+                "from_q":      yest_q,
+                "to_q":        today_q,
                 "rs_rating":   tech["rs_rating"],
                 "rs_momentum": tech["rs_momentum"],
             })
 
         if yest_tech["rs_rating"] < THRESHOLD <= tech["rs_rating"]:
             threshold_crossings.append({
-                "ticker": ticker,
-                "sector": rec.get("sector", ""),
-                "metric": "RS Rating",
-                "from":   yest_tech["rs_rating"],
-                "to":     tech["rs_rating"],
+                "ticker":   ticker,
+                "sector":   rec.get("sector", ""),
+                "metric":   "RS Rating",
+                "from_val": yest_tech["rs_rating"],
+                "to_val":   tech["rs_rating"],
             })
 
         if yest_tech["rs_momentum"] < THRESHOLD <= tech["rs_momentum"]:
             threshold_crossings.append({
-                "ticker": ticker,
-                "sector": rec.get("sector", ""),
-                "metric": "RS Momentum",
-                "from":   yest_tech["rs_momentum"],
-                "to":     tech["rs_momentum"],
+                "ticker":   ticker,
+                "sector":   rec.get("sector", ""),
+                "metric":   "RS Momentum",
+                "from_val": yest_tech["rs_momentum"],
+                "to_val":   tech["rs_momentum"],
             })
 
     # ── RS Momentum rising streak ──────────────────────────────────────────────
