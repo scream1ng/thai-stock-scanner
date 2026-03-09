@@ -156,7 +156,7 @@ def generate_briefing(stocks: list, date: str) -> str:
     summary = _summarize(stocks)
     prompt  = _build_prompt(summary, date)
 
-    for model_name in ["gemini-2.5-flash", "gemini-2.0-flash"]:
+    for model_name in ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-2.5-flash-lite"]:
         try:
             print(f"  Trying model: {model_name}")
             model    = genai.GenerativeModel(model_name)
