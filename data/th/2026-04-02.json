@@ -1,0 +1,1942 @@
+[
+  {
+    "ticker": "AIE.BK",
+    "sector": "Process Industries",
+    "exchange": "SET",
+    "technical": {
+      "price": 1.17,
+      "sma10": 1.24,
+      "sma20": 1.19,
+      "sma50": 1.11,
+      "sma200": 1.1,
+      "rs_rating": 45.5,
+      "rs_momentum": 88.1,
+      "stretch_factor": 0.94,
+      "atr_pct": 5.74,
+      "atr_mult_low": 3.24,
+      "volume_ratio": 0.41,
+      "proximity_52w": 84.7,
+      "tightness_score": 0
+    }
+  },
+  {
+    "ticker": "AJ.BK",
+    "sector": "Process Industries",
+    "exchange": "SET",
+    "technical": {
+      "price": 3.16,
+      "sma10": 2.74,
+      "sma20": 2.47,
+      "sma50": 2.06,
+      "sma200": 2.13,
+      "rs_rating": 92.2,
+      "rs_momentum": 98.0,
+      "stretch_factor": 6.91,
+      "atr_pct": 7.72,
+      "atr_mult_low": 6.47,
+      "volume_ratio": 0.97,
+      "proximity_52w": 84.9,
+      "tightness_score": 0
+    }
+  },
+  {
+    "ticker": "AMARC.BK",
+    "sector": "Commercial Services",
+    "exchange": "SET",
+    "technical": {
+      "price": 3.44,
+      "sma10": 3.33,
+      "sma20": 3.4,
+      "sma50": 3.11,
+      "sma200": 2.98,
+      "rs_rating": 98.0,
+      "rs_momentum": 70.1,
+      "stretch_factor": 2.61,
+      "atr_pct": 4.07,
+      "atr_mult_low": 9.01,
+      "volume_ratio": 0.94,
+      "proximity_52w": 81.9,
+      "tightness_score": 57.4
+    }
+  },
+  {
+    "ticker": "AMATA.BK",
+    "sector": "Finance",
+    "exchange": "SET",
+    "technical": {
+      "price": 19.3,
+      "sma10": 18.94,
+      "sma20": 18.76,
+      "sma50": 17.93,
+      "sma200": 16.21,
+      "rs_rating": 66.1,
+      "rs_momentum": 72.9,
+      "stretch_factor": 2.33,
+      "atr_pct": 3.28,
+      "atr_mult_low": 6.95,
+      "volume_ratio": 1.3,
+      "proximity_52w": 92.3,
+      "tightness_score": 62.0
+    }
+  },
+  {
+    "ticker": "AOT.BK",
+    "sector": "Transportation",
+    "exchange": "SET",
+    "technical": {
+      "price": 53.5,
+      "sma10": 51.0,
+      "sma20": 50.28,
+      "sma50": 52.27,
+      "sma200": 43.88,
+      "rs_rating": 85.5,
+      "rs_momentum": 83.3,
+      "stretch_factor": 0.72,
+      "atr_pct": 3.27,
+      "atr_mult_low": 3.29,
+      "volume_ratio": 0.58,
+      "proximity_52w": 91.8,
+      "tightness_score": 25.2
+    }
+  },
+  {
+    "ticker": "APO.BK",
+    "sector": "Process Industries",
+    "exchange": "SET",
+    "technical": {
+      "price": 2.36,
+      "sma10": 2.35,
+      "sma20": 2.25,
+      "sma50": 2.06,
+      "sma200": 1.76,
+      "rs_rating": 95.4,
+      "rs_momentum": 93.9,
+      "stretch_factor": 2.36,
+      "atr_pct": 6.17,
+      "atr_mult_low": 4.3,
+      "volume_ratio": 1.3,
+      "proximity_52w": 95.2,
+      "tightness_score": 26.6
+    }
+  },
+  {
+    "ticker": "AURA.BK",
+    "sector": "Consumer Durables",
+    "exchange": "SET",
+    "technical": {
+      "price": 14.2,
+      "sma10": 13.35,
+      "sma20": 13.4,
+      "sma50": 13.47,
+      "sma200": 14.27,
+      "rs_rating": 28.2,
+      "rs_momentum": 69.0,
+      "stretch_factor": 1.19,
+      "atr_pct": 4.54,
+      "atr_mult_low": 2.95,
+      "volume_ratio": 1.39,
+      "proximity_52w": 80.7,
+      "tightness_score": 10.8
+    }
+  },
+  {
+    "ticker": "BANPU.BK",
+    "sector": "Energy Minerals",
+    "exchange": "SET",
+    "technical": {
+      "price": 6,
+      "sma10": 6.05,
+      "sma20": 5.99,
+      "sma50": 5.8,
+      "sma200": 4.97,
+      "rs_rating": 86.6,
+      "rs_momentum": 71.0,
+      "stretch_factor": 0.89,
+      "atr_pct": 3.86,
+      "atr_mult_low": 4.66,
+      "volume_ratio": 0.51,
+      "proximity_52w": 95.2,
+      "tightness_score": 55.6
+    }
+  },
+  {
+    "ticker": "BAY.BK",
+    "sector": "Finance",
+    "exchange": "SET",
+    "technical": {
+      "price": 26,
+      "sma10": 25.55,
+      "sma20": 25.44,
+      "sma50": 25.69,
+      "sma200": 24.13,
+      "rs_rating": 49.0,
+      "rs_momentum": 71.0,
+      "stretch_factor": 0.62,
+      "atr_pct": 1.94,
+      "atr_mult_low": 2.57,
+      "volume_ratio": 1.11,
+      "proximity_52w": 94.5,
+      "tightness_score": 80.8
+    }
+  },
+  {
+    "ticker": "BBGI.BK",
+    "sector": "Process Industries",
+    "exchange": "SET",
+    "technical": {
+      "price": 4.2,
+      "sma10": 4.18,
+      "sma20": 4.03,
+      "sma50": 3.47,
+      "sma200": 3.08,
+      "rs_rating": 92.1,
+      "rs_momentum": 93.3,
+      "stretch_factor": 4.46,
+      "atr_pct": 4.72,
+      "atr_mult_low": 8.37,
+      "volume_ratio": 0.59,
+      "proximity_52w": 94.6,
+      "tightness_score": 11.1
+    }
+  },
+  {
+    "ticker": "BBIK.BK",
+    "sector": "Commercial Services",
+    "exchange": "SET",
+    "technical": {
+      "price": 19.5,
+      "sma10": 18.73,
+      "sma20": 19.23,
+      "sma50": 18.34,
+      "sma200": 18.81,
+      "rs_rating": 35.2,
+      "rs_momentum": 49.0,
+      "stretch_factor": 1.42,
+      "atr_pct": 4.46,
+      "atr_mult_low": 6.89,
+      "volume_ratio": 0.87,
+      "proximity_52w": 63.9,
+      "tightness_score": 35.0
+    }
+  },
+  {
+    "ticker": "BBL.BK",
+    "sector": "Finance",
+    "exchange": "SET",
+    "technical": {
+      "price": 167.5,
+      "sma10": 167.15,
+      "sma20": 166.7,
+      "sma50": 165.41,
+      "sma200": 156.87,
+      "rs_rating": 49.0,
+      "rs_momentum": 55.6,
+      "stretch_factor": 0.74,
+      "atr_pct": 1.71,
+      "atr_mult_low": 4.19,
+      "volume_ratio": 1.05,
+      "proximity_52w": 94.4,
+      "tightness_score": 76.1
+    }
+  },
+  {
+    "ticker": "BCP.BK",
+    "sector": "Retail Trade",
+    "exchange": "SET",
+    "technical": {
+      "price": 38.75,
+      "sma10": 39.18,
+      "sma20": 38.15,
+      "sma50": 35.58,
+      "sma200": 31.61,
+      "rs_rating": 86.7,
+      "rs_momentum": 84.5,
+      "stretch_factor": 2.43,
+      "atr_pct": 3.67,
+      "atr_mult_low": 9.29,
+      "volume_ratio": 1.27,
+      "proximity_52w": 96.9,
+      "tightness_score": 61.3
+    }
+  },
+  {
+    "ticker": "BIOTEC.BK",
+    "sector": "Transportation",
+    "exchange": "SET",
+    "technical": {
+      "price": 0.28,
+      "sma10": 0.3,
+      "sma20": 0.26,
+      "sma50": 0.21,
+      "sma200": 0.2,
+      "rs_rating": 92.0,
+      "rs_momentum": 98.0,
+      "stretch_factor": 2.85,
+      "atr_pct": 11.68,
+      "atr_mult_low": 3.36,
+      "volume_ratio": 0.45,
+      "proximity_52w": 80.0,
+      "tightness_score": 0
+    }
+  },
+  {
+    "ticker": "BJC.BK",
+    "sector": "Process Industries",
+    "exchange": "SET",
+    "technical": {
+      "price": 14.9,
+      "sma10": 14.2,
+      "sma20": 14.05,
+      "sma50": 14.79,
+      "sma200": 17.1,
+      "rs_rating": 19.6,
+      "rs_momentum": 77.5,
+      "stretch_factor": 0.2,
+      "atr_pct": 3.64,
+      "atr_mult_low": 2.95,
+      "volume_ratio": 0.52,
+      "proximity_52w": 61.6,
+      "tightness_score": 15.0
+    }
+  },
+  {
+    "ticker": "BKIH.BK",
+    "sector": "Miscellaneous",
+    "exchange": "SET",
+    "technical": {
+      "price": 324,
+      "sma10": 318,
+      "sma20": 314,
+      "sma50": 309.2,
+      "sma200": 299.38,
+      "rs_rating": 55.9,
+      "rs_momentum": 71.1,
+      "stretch_factor": 4.89,
+      "atr_pct": 0.98,
+      "atr_mult_low": 9.77,
+      "volume_ratio": 1.15,
+      "proximity_52w": 99.7,
+      "tightness_score": 69.1
+    }
+  },
+  {
+    "ticker": "BLA.BK",
+    "sector": "Finance",
+    "exchange": "SET",
+    "technical": {
+      "price": 20.6,
+      "sma10": 19.75,
+      "sma20": 19.61,
+      "sma50": 20.51,
+      "sma200": 18.73,
+      "rs_rating": 52.2,
+      "rs_momentum": 69.0,
+      "stretch_factor": 0.16,
+      "atr_pct": 2.7,
+      "atr_mult_low": 2.7,
+      "volume_ratio": 1.32,
+      "proximity_52w": 90.0,
+      "tightness_score": 54.7
+    }
+  },
+  {
+    "ticker": "BPP.BK",
+    "sector": "Utilities",
+    "exchange": "SET",
+    "technical": {
+      "price": 12.3,
+      "sma10": 12.46,
+      "sma20": 12.41,
+      "sma50": 12.03,
+      "sma200": 10.22,
+      "rs_rating": 90.5,
+      "rs_momentum": 70.7,
+      "stretch_factor": 0.72,
+      "atr_pct": 3.11,
+      "atr_mult_low": 4.96,
+      "volume_ratio": 0.32,
+      "proximity_52w": 94.6,
+      "tightness_score": 51.2
+    }
+  },
+  {
+    "ticker": "BTG.BK",
+    "sector": "Process Industries",
+    "exchange": "SET",
+    "technical": {
+      "price": 25,
+      "sma10": 22.52,
+      "sma20": 21.69,
+      "sma50": 19.75,
+      "sma200": 18.4,
+      "rs_rating": 90.9,
+      "rs_momentum": 91.5,
+      "stretch_factor": 6.64,
+      "atr_pct": 4.0,
+      "atr_mult_low": 9.27,
+      "volume_ratio": 1.31,
+      "proximity_52w": 100.0,
+      "tightness_score": 0
+    }
+  },
+  {
+    "ticker": "BWG.BK",
+    "sector": "Industrial Services",
+    "exchange": "SET",
+    "technical": {
+      "price": 0.32,
+      "sma10": 0.31,
+      "sma20": 0.32,
+      "sma50": 0.3,
+      "sma200": 0.26,
+      "rs_rating": 79.2,
+      "rs_momentum": 87.2,
+      "stretch_factor": 0.85,
+      "atr_pct": 7.88,
+      "atr_mult_low": 2.78,
+      "volume_ratio": 0.6,
+      "proximity_52w": 84.2,
+      "tightness_score": 16.7
+    }
+  },
+  {
+    "ticker": "CCET.BK",
+    "sector": "Electronic Technology",
+    "exchange": "SET",
+    "technical": {
+      "price": 4.96,
+      "sma10": 4.8,
+      "sma20": 4.78,
+      "sma50": 4.92,
+      "sma200": 5.4,
+      "rs_rating": 29.0,
+      "rs_momentum": 85.2,
+      "stretch_factor": 0.16,
+      "atr_pct": 5.07,
+      "atr_mult_low": 2.39,
+      "volume_ratio": 1.01,
+      "proximity_52w": 72.0,
+      "tightness_score": 18.0
+    }
+  },
+  {
+    "ticker": "CFARM.BK",
+    "sector": "Process Industries",
+    "exchange": "SET",
+    "technical": {
+      "price": 0.88,
+      "sma10": 0.83,
+      "sma20": 0.81,
+      "sma50": 0.78,
+      "sma200": 0.8,
+      "rs_rating": 73.2,
+      "rs_momentum": 92.7,
+      "stretch_factor": 1.81,
+      "atr_pct": 7.09,
+      "atr_mult_low": 3.69,
+      "volume_ratio": 0.97,
+      "proximity_52w": 80.7,
+      "tightness_score": 9.1
+    }
+  },
+  {
+    "ticker": "CK.BK",
+    "sector": "Industrial Services",
+    "exchange": "SET",
+    "technical": {
+      "price": 16.3,
+      "sma10": 15.24,
+      "sma20": 15.39,
+      "sma50": 14.85,
+      "sma200": 13.96,
+      "rs_rating": 85.4,
+      "rs_momentum": 74.8,
+      "stretch_factor": 2.26,
+      "atr_pct": 4.33,
+      "atr_mult_low": 7.48,
+      "volume_ratio": 1.6,
+      "proximity_52w": 93.6,
+      "tightness_score": 26.4
+    }
+  },
+  {
+    "ticker": "CPAXT.BK",
+    "sector": "Retail Trade",
+    "exchange": "SET",
+    "technical": {
+      "price": 16,
+      "sma10": 15.45,
+      "sma20": 15.29,
+      "sma50": 15.66,
+      "sma200": 18.06,
+      "rs_rating": 18.4,
+      "rs_momentum": 77.9,
+      "stretch_factor": 0.59,
+      "atr_pct": 3.68,
+      "atr_mult_low": 3.39,
+      "volume_ratio": 0.78,
+      "proximity_52w": 59.5,
+      "tightness_score": 33.3
+    }
+  },
+  {
+    "ticker": "CPF.BK",
+    "sector": "Process Industries",
+    "exchange": "SET",
+    "technical": {
+      "price": 21.1,
+      "sma10": 20.3,
+      "sma20": 19.75,
+      "sma50": 20.46,
+      "sma200": 21.81,
+      "rs_rating": 28.7,
+      "rs_momentum": 80.8,
+      "stretch_factor": 1.06,
+      "atr_pct": 2.94,
+      "atr_mult_low": 3.87,
+      "volume_ratio": 1.1,
+      "proximity_52w": 83.1,
+      "tightness_score": 40.0
+    }
+  },
+  {
+    "ticker": "DELTA.BK",
+    "sector": "Electronic Technology",
+    "exchange": "SET",
+    "technical": {
+      "price": 271,
+      "sma10": 271.0,
+      "sma20": 265.55,
+      "sma50": 241.43,
+      "sma200": 182.9,
+      "rs_rating": 98.0,
+      "rs_momentum": 85.2,
+      "stretch_factor": 2.44,
+      "atr_pct": 5.02,
+      "atr_mult_low": 8.23,
+      "volume_ratio": 0.74,
+      "proximity_52w": 93.4,
+      "tightness_score": 23.7
+    }
+  },
+  {
+    "ticker": "DMT.BK",
+    "sector": "Transportation",
+    "exchange": "SET",
+    "technical": {
+      "price": 11.1,
+      "sma10": 11.09,
+      "sma20": 11.08,
+      "sma50": 11.02,
+      "sma200": 10.38,
+      "rs_rating": 58.1,
+      "rs_momentum": 66.1,
+      "stretch_factor": 0.5,
+      "atr_pct": 1.46,
+      "atr_mult_low": 6.19,
+      "volume_ratio": 0.41,
+      "proximity_52w": 99.1,
+      "tightness_score": 94.0
+    }
+  },
+  {
+    "ticker": "DV8.BK",
+    "sector": "Consumer Services",
+    "exchange": "SET",
+    "technical": {
+      "price": 4.96,
+      "sma10": 5.07,
+      "sma20": 4.81,
+      "sma50": 4.55,
+      "sma200": 5.71,
+      "rs_rating": 99.0,
+      "rs_momentum": 86.8,
+      "stretch_factor": 1.08,
+      "atr_pct": 8.37,
+      "atr_mult_low": 2.31,
+      "volume_ratio": 0.14,
+      "proximity_52w": 57.7,
+      "tightness_score": 15.3
+    }
+  },
+  {
+    "ticker": "EASTW.BK",
+    "sector": "Utilities",
+    "exchange": "SET",
+    "technical": {
+      "price": 2.94,
+      "sma10": 2.83,
+      "sma20": 2.68,
+      "sma50": 2.44,
+      "sma200": 2.26,
+      "rs_rating": 91.3,
+      "rs_momentum": 88.4,
+      "stretch_factor": 3.53,
+      "atr_pct": 5.81,
+      "atr_mult_low": 6.67,
+      "volume_ratio": 0.79,
+      "proximity_52w": 91.9,
+      "tightness_score": 0
+    }
+  },
+  {
+    "ticker": "ETC.BK",
+    "sector": "Utilities",
+    "exchange": "SET",
+    "technical": {
+      "price": 0.72,
+      "sma10": 0.7,
+      "sma20": 0.66,
+      "sma50": 0.62,
+      "sma200": 0.71,
+      "rs_rating": 26.4,
+      "rs_momentum": 90.9,
+      "stretch_factor": 3.18,
+      "atr_pct": 5.07,
+      "atr_mult_low": 4.93,
+      "volume_ratio": 0.23,
+      "proximity_52w": 42.4,
+      "tightness_score": 44.4
+    }
+  },
+  {
+    "ticker": "FM.BK",
+    "sector": "Process Industries",
+    "exchange": "SET",
+    "technical": {
+      "price": 4.26,
+      "sma10": 4.04,
+      "sma20": 3.96,
+      "sma50": 3.86,
+      "sma200": 3.83,
+      "rs_rating": 63.1,
+      "rs_momentum": 85.2,
+      "stretch_factor": 4.06,
+      "atr_pct": 2.55,
+      "atr_mult_low": 6.62,
+      "volume_ratio": 3.56,
+      "proximity_52w": 100.0,
+      "tightness_score": 49.9
+    }
+  },
+  {
+    "ticker": "FORTH.BK",
+    "sector": "Electronic Technology",
+    "exchange": "SET",
+    "technical": {
+      "price": 7.2,
+      "sma10": 6.71,
+      "sma20": 6.88,
+      "sma50": 6.97,
+      "sma200": 7.11,
+      "rs_rating": 48.1,
+      "rs_momentum": 72.7,
+      "stretch_factor": 0.64,
+      "atr_pct": 5.13,
+      "atr_mult_low": 5.17,
+      "volume_ratio": 1.57,
+      "proximity_52w": 72.7,
+      "tightness_score": 7.4
+    }
+  },
+  {
+    "ticker": "GFPT.BK",
+    "sector": "Consumer Non-Durables",
+    "exchange": "SET",
+    "technical": {
+      "price": 9.55,
+      "sma10": 9.3,
+      "sma20": 9.18,
+      "sma50": 9.49,
+      "sma200": 9.78,
+      "rs_rating": 36.1,
+      "rs_momentum": 77.4,
+      "stretch_factor": 0.25,
+      "atr_pct": 2.57,
+      "atr_mult_low": 3.05,
+      "volume_ratio": 2.56,
+      "proximity_52w": 91.2,
+      "tightness_score": 61.6
+    }
+  },
+  {
+    "ticker": "GUNKUL.BK",
+    "sector": "Utilities",
+    "exchange": "SET",
+    "technical": {
+      "price": 2.38,
+      "sma10": 2.39,
+      "sma20": 2.29,
+      "sma50": 2.17,
+      "sma200": 1.91,
+      "rs_rating": 88.0,
+      "rs_momentum": 80.5,
+      "stretch_factor": 2.05,
+      "atr_pct": 4.73,
+      "atr_mult_low": 5.42,
+      "volume_ratio": 0.78,
+      "proximity_52w": 94.4,
+      "tightness_score": 38.4
+    }
+  },
+  {
+    "ticker": "HANA.BK",
+    "sector": "Electronic Technology",
+    "exchange": "SET",
+    "technical": {
+      "price": 25.5,
+      "sma10": 26.42,
+      "sma20": 25.35,
+      "sma50": 20.82,
+      "sma200": 20.72,
+      "rs_rating": 91.2,
+      "rs_momentum": 98.0,
+      "stretch_factor": 3.37,
+      "atr_pct": 6.66,
+      "atr_mult_low": 6.39,
+      "volume_ratio": 1.17,
+      "proximity_52w": 89.5,
+      "tightness_score": 0
+    }
+  },
+  {
+    "ticker": "INSET.BK",
+    "sector": "Technology Services",
+    "exchange": "SET",
+    "technical": {
+      "price": 2.5,
+      "sma10": 2.56,
+      "sma20": 2.57,
+      "sma50": 2.41,
+      "sma200": 1.87,
+      "rs_rating": 90.6,
+      "rs_momentum": 64.3,
+      "stretch_factor": 0.72,
+      "atr_pct": 5.19,
+      "atr_mult_low": 7.2,
+      "volume_ratio": 1.21,
+      "proximity_52w": 90.1,
+      "tightness_score": 52.0
+    }
+  },
+  {
+    "ticker": "IRPC.BK",
+    "sector": "Energy Minerals",
+    "exchange": "SET",
+    "technical": {
+      "price": 1.83,
+      "sma10": 1.84,
+      "sma20": 1.56,
+      "sma50": 1.38,
+      "sma200": 1.11,
+      "rs_rating": 98.0,
+      "rs_momentum": 98.0,
+      "stretch_factor": 5.67,
+      "atr_pct": 5.75,
+      "atr_mult_low": 7.86,
+      "volume_ratio": 0.6,
+      "proximity_52w": 92.4,
+      "tightness_score": 0
+    }
+  },
+  {
+    "ticker": "IVL.BK",
+    "sector": "Process Industries",
+    "exchange": "SET",
+    "technical": {
+      "price": 25,
+      "sma10": 23.87,
+      "sma20": 22.21,
+      "sma50": 21.79,
+      "sma200": 20.28,
+      "rs_rating": 86.6,
+      "rs_momentum": 93.3,
+      "stretch_factor": 3.01,
+      "atr_pct": 4.9,
+      "atr_mult_low": 7.35,
+      "volume_ratio": 0.46,
+      "proximity_52w": 99.0,
+      "tightness_score": 24.0
+    }
+  },
+  {
+    "ticker": "KCE.BK",
+    "sector": "Electronic Technology",
+    "exchange": "SET",
+    "technical": {
+      "price": 21.7,
+      "sma10": 22.16,
+      "sma20": 21.48,
+      "sma50": 19.99,
+      "sma200": 21.78,
+      "rs_rating": 66.3,
+      "rs_momentum": 94.0,
+      "stretch_factor": 1.65,
+      "atr_pct": 5.17,
+      "atr_mult_low": 5.02,
+      "volume_ratio": 0.68,
+      "proximity_52w": 84.1,
+      "tightness_score": 20.1
+    }
+  },
+  {
+    "ticker": "KCG.BK",
+    "sector": "Consumer Non-Durables",
+    "exchange": "SET",
+    "technical": {
+      "price": 9.75,
+      "sma10": 9.44,
+      "sma20": 9.52,
+      "sma50": 9.25,
+      "sma200": 8.6,
+      "rs_rating": 69.0,
+      "rs_momentum": 69.0,
+      "stretch_factor": 1.74,
+      "atr_pct": 3.11,
+      "atr_mult_low": 5.28,
+      "volume_ratio": 1.74,
+      "proximity_52w": 98.0,
+      "tightness_score": 59.0
+    }
+  },
+  {
+    "ticker": "KGEN.BK",
+    "sector": "Consumer Services",
+    "exchange": "SET",
+    "technical": {
+      "price": 1.28,
+      "sma10": 1.23,
+      "sma20": 1.21,
+      "sma50": 1.22,
+      "sma200": 0.9,
+      "rs_rating": 91.8,
+      "rs_momentum": 81.0,
+      "stretch_factor": 0.85,
+      "atr_pct": 5.77,
+      "atr_mult_low": 2.44,
+      "volume_ratio": 0.51,
+      "proximity_52w": 87.7,
+      "tightness_score": 11.5
+    }
+  },
+  {
+    "ticker": "KGI.BK",
+    "sector": "Finance",
+    "exchange": "SET",
+    "technical": {
+      "price": 4.4,
+      "sma10": 4.32,
+      "sma20": 4.32,
+      "sma50": 4.29,
+      "sma200": 3.98,
+      "rs_rating": 54.5,
+      "rs_momentum": 69.0,
+      "stretch_factor": 1.91,
+      "atr_pct": 1.35,
+      "atr_mult_low": 7.09,
+      "volume_ratio": 0.39,
+      "proximity_52w": 97.3,
+      "tightness_score": 81.8
+    }
+  },
+  {
+    "ticker": "KKP.BK",
+    "sector": "Finance",
+    "exchange": "SET",
+    "technical": {
+      "price": 78.5,
+      "sma10": 74.95,
+      "sma20": 73.45,
+      "sma50": 73.0,
+      "sma200": 62.68,
+      "rs_rating": 87.9,
+      "rs_momentum": 78.3,
+      "stretch_factor": 3.71,
+      "atr_pct": 2.03,
+      "atr_mult_low": 8.16,
+      "volume_ratio": 0.98,
+      "proximity_52w": 100.0,
+      "tightness_score": 40.6
+    }
+  },
+  {
+    "ticker": "KSL.BK",
+    "sector": "Process Industries",
+    "exchange": "SET",
+    "technical": {
+      "price": 1.62,
+      "sma10": 1.65,
+      "sma20": 1.51,
+      "sma50": 1.37,
+      "sma200": 1.38,
+      "rs_rating": 76.9,
+      "rs_momentum": 92.5,
+      "stretch_factor": 3.9,
+      "atr_pct": 4.68,
+      "atr_mult_low": 6.02,
+      "volume_ratio": 0.17,
+      "proximity_52w": 94.2,
+      "tightness_score": 42.4
+    }
+  },
+  {
+    "ticker": "KTB.BK",
+    "sector": "Finance",
+    "exchange": "SET",
+    "technical": {
+      "price": 35.5,
+      "sma10": 34.9,
+      "sma20": 34.54,
+      "sma50": 32.36,
+      "sma200": 27.07,
+      "rs_rating": 91.3,
+      "rs_momentum": 78.6,
+      "stretch_factor": 4.06,
+      "atr_pct": 2.39,
+      "atr_mult_low": 9.14,
+      "volume_ratio": 0.94,
+      "proximity_52w": 100.0,
+      "tightness_score": 67.1
+    }
+  },
+  {
+    "ticker": "MAJOR.BK",
+    "sector": "Consumer Services",
+    "exchange": "SET",
+    "technical": {
+      "price": 7.5,
+      "sma10": 7.31,
+      "sma20": 7.56,
+      "sma50": 7.38,
+      "sma200": 7.66,
+      "rs_rating": 25.4,
+      "rs_momentum": 47.9,
+      "stretch_factor": 0.43,
+      "atr_pct": 3.82,
+      "atr_mult_low": 3.31,
+      "volume_ratio": 0.71,
+      "proximity_52w": 67.7,
+      "tightness_score": 68.9
+    }
+  },
+  {
+    "ticker": "MALEE.BK",
+    "sector": "Consumer Non-Durables",
+    "exchange": "SET",
+    "technical": {
+      "price": 4.34,
+      "sma10": 4.14,
+      "sma20": 4.32,
+      "sma50": 4.26,
+      "sma200": 4.86,
+      "rs_rating": 19.8,
+      "rs_momentum": 42.2,
+      "stretch_factor": 0.47,
+      "atr_pct": 4.0,
+      "atr_mult_low": 3.11,
+      "volume_ratio": 2.34,
+      "proximity_52w": 50.5,
+      "tightness_score": 47.8
+    }
+  },
+  {
+    "ticker": "MCS.BK",
+    "sector": "Non-Energy Minerals",
+    "exchange": "SET",
+    "technical": {
+      "price": 9.55,
+      "sma10": 9.44,
+      "sma20": 9.44,
+      "sma50": 9.1,
+      "sma200": 8.48,
+      "rs_rating": 75.0,
+      "rs_momentum": 69.0,
+      "stretch_factor": 2.59,
+      "atr_pct": 1.91,
+      "atr_mult_low": 7.4,
+      "volume_ratio": 1.0,
+      "proximity_52w": 99.0,
+      "tightness_score": 68.6
+    }
+  },
+  {
+    "ticker": "MOSHI.BK",
+    "sector": "Distribution Services",
+    "exchange": "SET",
+    "technical": {
+      "price": 35.75,
+      "sma10": 34.5,
+      "sma20": 33.95,
+      "sma50": 35.32,
+      "sma200": 36.93,
+      "rs_rating": 27.3,
+      "rs_momentum": 59.1,
+      "stretch_factor": 0.36,
+      "atr_pct": 3.37,
+      "atr_mult_low": 3.11,
+      "volume_ratio": 0.81,
+      "proximity_52w": 80.8,
+      "tightness_score": 44.1
+    }
+  },
+  {
+    "ticker": "NER.BK",
+    "sector": "Producer Manufacturing",
+    "exchange": "SET",
+    "technical": {
+      "price": 4.9,
+      "sma10": 4.81,
+      "sma20": 4.76,
+      "sma50": 4.84,
+      "sma200": 4.43,
+      "rs_rating": 54.9,
+      "rs_momentum": 75.1,
+      "stretch_factor": 0.55,
+      "atr_pct": 2.25,
+      "atr_mult_low": 3.45,
+      "volume_ratio": 0.8,
+      "proximity_52w": 92.5,
+      "tightness_score": 72.8
+    }
+  },
+  {
+    "ticker": "NYT.BK",
+    "sector": "Transportation",
+    "exchange": "SET",
+    "technical": {
+      "price": 4.36,
+      "sma10": 4.14,
+      "sma20": 4.04,
+      "sma50": 3.63,
+      "sma200": 3.07,
+      "rs_rating": 92.3,
+      "rs_momentum": 87.7,
+      "stretch_factor": 8.27,
+      "atr_pct": 2.43,
+      "atr_mult_low": 12.83,
+      "volume_ratio": 1.12,
+      "proximity_52w": 99.5,
+      "tightness_score": 32.7
+    }
+  },
+  {
+    "ticker": "PCE.BK",
+    "sector": "Process Industries",
+    "exchange": "SET",
+    "technical": {
+      "price": 2.62,
+      "sma10": 2.6,
+      "sma20": 2.49,
+      "sma50": 2.29,
+      "sma200": 2.42,
+      "rs_rating": 39.2,
+      "rs_momentum": 87.4,
+      "stretch_factor": 4.02,
+      "atr_pct": 3.58,
+      "atr_mult_low": 6.6,
+      "volume_ratio": 0.4,
+      "proximity_52w": 91.0,
+      "tightness_score": 38.9
+    }
+  },
+  {
+    "ticker": "PICO.BK",
+    "sector": "Commercial Services",
+    "exchange": "SET",
+    "technical": {
+      "price": 4.2,
+      "sma10": 4.18,
+      "sma20": 4.22,
+      "sma50": 4.13,
+      "sma200": 4.07,
+      "rs_rating": 33.9,
+      "rs_momentum": 55.3,
+      "stretch_factor": 0.63,
+      "atr_pct": 2.67,
+      "atr_mult_low": 5.01,
+      "volume_ratio": 9.99,
+      "proximity_52w": 95.3,
+      "tightness_score": 74.6
+    }
+  },
+  {
+    "ticker": "PRM.BK",
+    "sector": "Distribution Services",
+    "exchange": "SET",
+    "technical": {
+      "price": 8,
+      "sma10": 7.79,
+      "sma20": 7.65,
+      "sma50": 7.55,
+      "sma200": 6.69,
+      "rs_rating": 80.6,
+      "rs_momentum": 72.7,
+      "stretch_factor": 1.92,
+      "atr_pct": 3.1,
+      "atr_mult_low": 3.83,
+      "volume_ratio": 0.87,
+      "proximity_52w": 99.4,
+      "tightness_score": 58.3
+    }
+  },
+  {
+    "ticker": "PTL.BK",
+    "sector": "Process Industries",
+    "exchange": "SET",
+    "technical": {
+      "price": 10.4,
+      "sma10": 10.07,
+      "sma20": 9.53,
+      "sma50": 8.77,
+      "sma200": 9.33,
+      "rs_rating": 46.8,
+      "rs_momentum": 93.4,
+      "stretch_factor": 4.02,
+      "atr_pct": 4.62,
+      "atr_mult_low": 5.62,
+      "volume_ratio": 0.45,
+      "proximity_52w": 77.0,
+      "tightness_score": 39.1
+    }
+  },
+  {
+    "ticker": "PTT.BK",
+    "sector": "Energy Minerals",
+    "exchange": "SET",
+    "technical": {
+      "price": 35.5,
+      "sma10": 34.5,
+      "sma20": 34.19,
+      "sma50": 34.94,
+      "sma200": 32.39,
+      "rs_rating": 69.0,
+      "rs_momentum": 70.1,
+      "stretch_factor": 0.63,
+      "atr_pct": 2.53,
+      "atr_mult_low": 5.84,
+      "volume_ratio": 0.92,
+      "proximity_52w": 98.6,
+      "tightness_score": 62.4
+    }
+  },
+  {
+    "ticker": "PTTEP.BK",
+    "sector": "Energy Minerals",
+    "exchange": "SET",
+    "technical": {
+      "price": 159.5,
+      "sma10": 157.1,
+      "sma20": 151.37,
+      "sma50": 138.67,
+      "sma200": 118.38,
+      "rs_rating": 92.1,
+      "rs_momentum": 86.2,
+      "stretch_factor": 5.47,
+      "atr_pct": 2.75,
+      "atr_mult_low": 12.48,
+      "volume_ratio": 0.9,
+      "proximity_52w": 98.8,
+      "tightness_score": 58.2
+    }
+  },
+  {
+    "ticker": "PTTGC.BK",
+    "sector": "Energy Minerals",
+    "exchange": "SET",
+    "technical": {
+      "price": 35.75,
+      "sma10": 33.83,
+      "sma20": 31.23,
+      "sma50": 28.09,
+      "sma200": 24.16,
+      "rs_rating": 98.0,
+      "rs_momentum": 97.1,
+      "stretch_factor": 5.65,
+      "atr_pct": 4.83,
+      "atr_mult_low": 8.77,
+      "volume_ratio": 0.62,
+      "proximity_52w": 97.9,
+      "tightness_score": 6.8
+    }
+  },
+  {
+    "ticker": "QH.BK",
+    "sector": "Finance",
+    "exchange": "SET",
+    "technical": {
+      "price": 1.4,
+      "sma10": 1.37,
+      "sma20": 1.37,
+      "sma50": 1.37,
+      "sma200": 1.34,
+      "rs_rating": 39.3,
+      "rs_momentum": 69.0,
+      "stretch_factor": 0.95,
+      "atr_pct": 2.31,
+      "atr_mult_low": 4.32,
+      "volume_ratio": 1.13,
+      "proximity_52w": 91.5,
+      "tightness_score": 66.7
+    }
+  },
+  {
+    "ticker": "RATCH.BK",
+    "sector": "Utilities",
+    "exchange": "SET",
+    "technical": {
+      "price": 30.25,
+      "sma10": 29.35,
+      "sma20": 28.95,
+      "sma50": 30.23,
+      "sma200": 27.95,
+      "rs_rating": 63.5,
+      "rs_momentum": 75.8,
+      "stretch_factor": 0.03,
+      "atr_pct": 2.59,
+      "atr_mult_low": 3.54,
+      "volume_ratio": 0.18,
+      "proximity_52w": 96.5,
+      "tightness_score": 50.4
+    }
+  },
+  {
+    "ticker": "RBF.BK",
+    "sector": "Consumer Non-Durables",
+    "exchange": "SET",
+    "technical": {
+      "price": 4.04,
+      "sma10": 3.8,
+      "sma20": 3.72,
+      "sma50": 3.51,
+      "sma200": 3.6,
+      "rs_rating": 60.2,
+      "rs_momentum": 85.7,
+      "stretch_factor": 4.43,
+      "atr_pct": 3.41,
+      "atr_mult_low": 7.12,
+      "volume_ratio": 0.62,
+      "proximity_52w": 83.4,
+      "tightness_score": 0
+    }
+  },
+  {
+    "ticker": "RCL.BK",
+    "sector": "Transportation",
+    "exchange": "SET",
+    "technical": {
+      "price": 31.5,
+      "sma10": 31.2,
+      "sma20": 31.09,
+      "sma50": 29.86,
+      "sma200": 27.95,
+      "rs_rating": 85.0,
+      "rs_momentum": 74.6,
+      "stretch_factor": 1.42,
+      "atr_pct": 3.85,
+      "atr_mult_low": 4.59,
+      "volume_ratio": 0.88,
+      "proximity_52w": 91.3,
+      "tightness_score": 68.3
+    }
+  },
+  {
+    "ticker": "ROJNA.BK",
+    "sector": "Finance",
+    "exchange": "SET",
+    "technical": {
+      "price": 5.3,
+      "sma10": 5.13,
+      "sma20": 5.06,
+      "sma50": 5.03,
+      "sma200": 4.66,
+      "rs_rating": 58.9,
+      "rs_momentum": 74.8,
+      "stretch_factor": 2.37,
+      "atr_pct": 2.27,
+      "atr_mult_low": 7.49,
+      "volume_ratio": 0.83,
+      "proximity_52w": 93.8,
+      "tightness_score": 59.7
+    }
+  },
+  {
+    "ticker": "RPC.BK",
+    "sector": "Energy Minerals",
+    "exchange": "SET",
+    "technical": {
+      "price": 0.44,
+      "sma10": 0.4,
+      "sma20": 0.35,
+      "sma50": 0.31,
+      "sma200": 0.3,
+      "rs_rating": 94.1,
+      "rs_momentum": 96.3,
+      "stretch_factor": 4.08,
+      "atr_pct": 10.27,
+      "atr_mult_low": 3.98,
+      "volume_ratio": 0.91,
+      "proximity_52w": 93.6,
+      "tightness_score": 0
+    }
+  },
+  {
+    "ticker": "SC.BK",
+    "sector": "Finance",
+    "exchange": "SET",
+    "technical": {
+      "price": 1.98,
+      "sma10": 1.96,
+      "sma20": 1.96,
+      "sma50": 1.9,
+      "sma200": 1.77,
+      "rs_rating": 49.0,
+      "rs_momentum": 73.8,
+      "stretch_factor": 1.48,
+      "atr_pct": 2.84,
+      "atr_mult_low": 6.39,
+      "volume_ratio": 0.92,
+      "proximity_52w": 83.4,
+      "tightness_score": 69.7
+    }
+  },
+  {
+    "ticker": "SCB.BK",
+    "sector": "Finance",
+    "exchange": "SET",
+    "technical": {
+      "price": 145.5,
+      "sma10": 145.15,
+      "sma20": 144.52,
+      "sma50": 142.64,
+      "sma200": 131.88,
+      "rs_rating": 59.9,
+      "rs_momentum": 63.3,
+      "stretch_factor": 1.5,
+      "atr_pct": 1.33,
+      "atr_mult_low": 5.41,
+      "volume_ratio": 0.66,
+      "proximity_52w": 98.0,
+      "tightness_score": 88.5
+    }
+  },
+  {
+    "ticker": "SCC.BK",
+    "sector": "Non-Energy Minerals",
+    "exchange": "SET",
+    "technical": {
+      "price": 204,
+      "sma10": 196.65,
+      "sma20": 187.35,
+      "sma50": 203.93,
+      "sma200": 199.28,
+      "rs_rating": 56.4,
+      "rs_momentum": 77.9,
+      "stretch_factor": 0.01,
+      "atr_pct": 3.5,
+      "atr_mult_low": 5.53,
+      "volume_ratio": 0.44,
+      "proximity_52w": 89.8,
+      "tightness_score": 7.8
+    }
+  },
+  {
+    "ticker": "SCGP.BK",
+    "sector": "Process Industries",
+    "exchange": "SET",
+    "technical": {
+      "price": 20.7,
+      "sma10": 19.54,
+      "sma20": 18.65,
+      "sma50": 19.62,
+      "sma200": 18.06,
+      "rs_rating": 79.8,
+      "rs_momentum": 88.2,
+      "stretch_factor": 1.3,
+      "atr_pct": 4.24,
+      "atr_mult_low": 4.77,
+      "volume_ratio": 0.87,
+      "proximity_52w": 98.0,
+      "tightness_score": 0
+    }
+  },
+  {
+    "ticker": "SHR.BK",
+    "sector": "Consumer Services",
+    "exchange": "SET",
+    "technical": {
+      "price": 1.74,
+      "sma10": 1.62,
+      "sma20": 1.62,
+      "sma50": 1.7,
+      "sma200": 1.58,
+      "rs_rating": 46.2,
+      "rs_momentum": 78.5,
+      "stretch_factor": 0.59,
+      "atr_pct": 3.97,
+      "atr_mult_low": 3.77,
+      "volume_ratio": 2.03,
+      "proximity_52w": 85.7,
+      "tightness_score": 0.4
+    }
+  },
+  {
+    "ticker": "SIS.BK",
+    "sector": "Distribution Services",
+    "exchange": "SET",
+    "technical": {
+      "price": 22.6,
+      "sma10": 21.68,
+      "sma20": 21.34,
+      "sma50": 21.4,
+      "sma200": 20.64,
+      "rs_rating": 57.2,
+      "rs_momentum": 78.2,
+      "stretch_factor": 1.62,
+      "atr_pct": 3.46,
+      "atr_mult_low": 5.94,
+      "volume_ratio": 1.03,
+      "proximity_52w": 98.0,
+      "tightness_score": 41.0
+    }
+  },
+  {
+    "ticker": "SKY.BK",
+    "sector": "Technology Services",
+    "exchange": "SET",
+    "technical": {
+      "price": 12.6,
+      "sma10": 12.48,
+      "sma20": 12.67,
+      "sma50": 12.56,
+      "sma200": 12.58,
+      "rs_rating": 32.3,
+      "rs_momentum": 69.0,
+      "stretch_factor": 0.07,
+      "atr_pct": 4.54,
+      "atr_mult_low": 4.55,
+      "volume_ratio": 0.65,
+      "proximity_52w": 73.3,
+      "tightness_score": 57.7
+    }
+  },
+  {
+    "ticker": "SOLAR.BK",
+    "sector": "Utilities",
+    "exchange": "SET",
+    "technical": {
+      "price": 0.3,
+      "sma10": 0.3,
+      "sma20": 0.24,
+      "sma50": 0.21,
+      "sma200": 0.27,
+      "rs_rating": 74.6,
+      "rs_momentum": 98.0,
+      "stretch_factor": 3.5,
+      "atr_pct": 12.23,
+      "atr_mult_low": 4.09,
+      "volume_ratio": 0.34,
+      "proximity_52w": 69.8,
+      "tightness_score": 0
+    }
+  },
+  {
+    "ticker": "STA.BK",
+    "sector": "Process Industries",
+    "exchange": "SET",
+    "technical": {
+      "price": 17.7,
+      "sma10": 17.36,
+      "sma20": 16.55,
+      "sma50": 14.79,
+      "sma200": 12.92,
+      "rs_rating": 89.0,
+      "rs_momentum": 96.5,
+      "stretch_factor": 4.33,
+      "atr_pct": 4.55,
+      "atr_mult_low": 6.95,
+      "volume_ratio": 0.59,
+      "proximity_52w": 99.4,
+      "tightness_score": 54.8
+    }
+  },
+  {
+    "ticker": "STECON.BK",
+    "sector": "Industrial Services",
+    "exchange": "SET",
+    "technical": {
+      "price": 12.9,
+      "sma10": 11.61,
+      "sma20": 11.86,
+      "sma50": 10.71,
+      "sma200": 7.87,
+      "rs_rating": 98.0,
+      "rs_momentum": 80.0,
+      "stretch_factor": 3.54,
+      "atr_pct": 5.78,
+      "atr_mult_low": 9.24,
+      "volume_ratio": 1.55,
+      "proximity_52w": 100.0,
+      "tightness_score": 1.8
+    }
+  },
+  {
+    "ticker": "STGT.BK",
+    "sector": "Producer Manufacturing",
+    "exchange": "SET",
+    "technical": {
+      "price": 11.1,
+      "sma10": 10.36,
+      "sma20": 10.05,
+      "sma50": 9.4,
+      "sma200": 7.72,
+      "rs_rating": 92.4,
+      "rs_momentum": 93.6,
+      "stretch_factor": 3.81,
+      "atr_pct": 4.74,
+      "atr_mult_low": 5.32,
+      "volume_ratio": 0.84,
+      "proximity_52w": 99.1,
+      "tightness_score": 3.9
+    }
+  },
+  {
+    "ticker": "TAE.BK",
+    "sector": "Process Industries",
+    "exchange": "SET",
+    "technical": {
+      "price": 1.16,
+      "sma10": 1.18,
+      "sma20": 0.94,
+      "sma50": 0.68,
+      "sma200": 0.59,
+      "rs_rating": 98.0,
+      "rs_momentum": 99.0,
+      "stretch_factor": 6.91,
+      "atr_pct": 10.22,
+      "atr_mult_low": 5.82,
+      "volume_ratio": 0.25,
+      "proximity_52w": 85.9,
+      "tightness_score": 0
+    }
+  },
+  {
+    "ticker": "TASCO.BK",
+    "sector": "Non-Energy Minerals",
+    "exchange": "SET",
+    "technical": {
+      "price": 13.8,
+      "sma10": 13.29,
+      "sma20": 13.11,
+      "sma50": 13.67,
+      "sma200": 14.13,
+      "rs_rating": 36.7,
+      "rs_momentum": 83.5,
+      "stretch_factor": 0.44,
+      "atr_pct": 2.18,
+      "atr_mult_low": 4.32,
+      "volume_ratio": 0.83,
+      "proximity_52w": 91.6,
+      "tightness_score": 56.5
+    }
+  },
+  {
+    "ticker": "TFG.BK",
+    "sector": "Process Industries",
+    "exchange": "SET",
+    "technical": {
+      "price": 9.55,
+      "sma10": 8.31,
+      "sma20": 7.61,
+      "sma50": 6.25,
+      "sma200": 5.21,
+      "rs_rating": 98.0,
+      "rs_momentum": 98.0,
+      "stretch_factor": 12.27,
+      "atr_pct": 4.3,
+      "atr_mult_low": 13.02,
+      "volume_ratio": 1.42,
+      "proximity_52w": 100.0,
+      "tightness_score": 0
+    }
+  },
+  {
+    "ticker": "TFM.BK",
+    "sector": "Process Industries",
+    "exchange": "SET",
+    "technical": {
+      "price": 6.6,
+      "sma10": 6.32,
+      "sma20": 6.29,
+      "sma50": 6.36,
+      "sma200": 5.81,
+      "rs_rating": 86.4,
+      "rs_momentum": 71.8,
+      "stretch_factor": 1.59,
+      "atr_pct": 2.37,
+      "atr_mult_low": 6.17,
+      "volume_ratio": 0.48,
+      "proximity_52w": 99.2,
+      "tightness_score": 34.3
+    }
+  },
+  {
+    "ticker": "THCOM.BK",
+    "sector": "Communications",
+    "exchange": "SET",
+    "technical": {
+      "price": 12.7,
+      "sma10": 12.16,
+      "sma20": 12.23,
+      "sma50": 11.14,
+      "sma200": 9.46,
+      "rs_rating": 89.0,
+      "rs_momentum": 87.3,
+      "stretch_factor": 2.63,
+      "atr_pct": 5.32,
+      "atr_mult_low": 6.96,
+      "volume_ratio": 1.4,
+      "proximity_52w": 92.0,
+      "tightness_score": 52.8
+    }
+  },
+  {
+    "ticker": "THG.BK",
+    "sector": "Health Services",
+    "exchange": "SET",
+    "technical": {
+      "price": 8.95,
+      "sma10": 8.47,
+      "sma20": 8.41,
+      "sma50": 8.73,
+      "sma200": 8.01,
+      "rs_rating": 44.2,
+      "rs_momentum": 81.6,
+      "stretch_factor": 0.74,
+      "atr_pct": 3.4,
+      "atr_mult_low": 3.24,
+      "volume_ratio": 0.54,
+      "proximity_52w": 83.5,
+      "tightness_score": 29.2
+    }
+  },
+  {
+    "ticker": "TISCO.BK",
+    "sector": "Finance",
+    "exchange": "SET",
+    "technical": {
+      "price": 113.5,
+      "sma10": 112.9,
+      "sma20": 112.67,
+      "sma50": 112.7,
+      "sma200": 105.81,
+      "rs_rating": 51.8,
+      "rs_momentum": 61.0,
+      "stretch_factor": 0.61,
+      "atr_pct": 1.17,
+      "atr_mult_low": 3.4,
+      "volume_ratio": 1.08,
+      "proximity_52w": 97.8,
+      "tightness_score": 91.2
+    }
+  },
+  {
+    "ticker": "TQM.BK",
+    "sector": "Finance",
+    "exchange": "SET",
+    "technical": {
+      "price": 13.1,
+      "sma10": 12.51,
+      "sma20": 12.81,
+      "sma50": 12.77,
+      "sma200": 13.05,
+      "rs_rating": 44.3,
+      "rs_momentum": 77.5,
+      "stretch_factor": 0.81,
+      "atr_pct": 3.18,
+      "atr_mult_low": 6.22,
+      "volume_ratio": 1.6,
+      "proximity_52w": 85.6,
+      "tightness_score": 54.2
+    }
+  },
+  {
+    "ticker": "TRUBB.BK",
+    "sector": "Producer Manufacturing",
+    "exchange": "SET",
+    "technical": {
+      "price": 1.18,
+      "sma10": 0.96,
+      "sma20": 0.89,
+      "sma50": 0.79,
+      "sma200": 0.68,
+      "rs_rating": 98.0,
+      "rs_momentum": 98.0,
+      "stretch_factor": 6.17,
+      "atr_pct": 8.0,
+      "atr_mult_low": 6.04,
+      "volume_ratio": 1.87,
+      "proximity_52w": 100.0,
+      "tightness_score": 0
+    }
+  },
+  {
+    "ticker": "TRUE.BK",
+    "sector": "Communications",
+    "exchange": "SET",
+    "technical": {
+      "price": 14.2,
+      "sma10": 14.03,
+      "sma20": 13.73,
+      "sma50": 13.22,
+      "sma200": 11.69,
+      "rs_rating": 86.2,
+      "rs_momentum": 74.6,
+      "stretch_factor": 2.27,
+      "atr_pct": 3.27,
+      "atr_mult_low": 7.75,
+      "volume_ratio": 0.76,
+      "proximity_52w": 96.6,
+      "tightness_score": 57.7
+    }
+  },
+  {
+    "ticker": "TRV.BK",
+    "sector": "Producer Manufacturing",
+    "exchange": "SET",
+    "technical": {
+      "price": 1.92,
+      "sma10": 1.82,
+      "sma20": 1.71,
+      "sma50": 1.59,
+      "sma200": 1.62,
+      "rs_rating": 84.5,
+      "rs_momentum": 93.1,
+      "stretch_factor": 4.08,
+      "atr_pct": 5.08,
+      "atr_mult_low": 5.23,
+      "volume_ratio": 0.0,
+      "proximity_52w": 85.7,
+      "tightness_score": 65.3
+    }
+  },
+  {
+    "ticker": "TSE.BK",
+    "sector": "Utilities",
+    "exchange": "SET",
+    "technical": {
+      "price": 0.72,
+      "sma10": 0.65,
+      "sma20": 0.55,
+      "sma50": 0.48,
+      "sma200": 0.46,
+      "rs_rating": 98.0,
+      "rs_momentum": 98.0,
+      "stretch_factor": 5.99,
+      "atr_pct": 8.35,
+      "atr_mult_low": 5.82,
+      "volume_ratio": 0.6,
+      "proximity_52w": 93.5,
+      "tightness_score": 0
+    }
+  },
+  {
+    "ticker": "TSTH.BK",
+    "sector": "Non-Energy Minerals",
+    "exchange": "SET",
+    "technical": {
+      "price": 0.8,
+      "sma10": 0.77,
+      "sma20": 0.75,
+      "sma50": 0.74,
+      "sma200": 0.73,
+      "rs_rating": 84.3,
+      "rs_momentum": 84.9,
+      "stretch_factor": 1.9,
+      "atr_pct": 4.27,
+      "atr_mult_low": 4.97,
+      "volume_ratio": 1.13,
+      "proximity_52w": 95.2,
+      "tightness_score": 16.7
+    }
+  },
+  {
+    "ticker": "TTA.BK",
+    "sector": "Transportation",
+    "exchange": "SET",
+    "technical": {
+      "price": 4.94,
+      "sma10": 4.85,
+      "sma20": 4.86,
+      "sma50": 4.67,
+      "sma200": 4.41,
+      "rs_rating": 73.7,
+      "rs_momentum": 71.0,
+      "stretch_factor": 1.71,
+      "atr_pct": 3.38,
+      "atr_mult_low": 6.49,
+      "volume_ratio": 0.63,
+      "proximity_52w": 98.8,
+      "tightness_score": 59.5
+    }
+  },
+  {
+    "ticker": "TTB.BK",
+    "sector": "Finance",
+    "exchange": "SET",
+    "technical": {
+      "price": 2.32,
+      "sma10": 2.26,
+      "sma20": 2.24,
+      "sma50": 2.16,
+      "sma200": 1.98,
+      "rs_rating": 75.1,
+      "rs_momentum": 71.5,
+      "stretch_factor": 3.03,
+      "atr_pct": 2.44,
+      "atr_mult_low": 6.0,
+      "volume_ratio": 0.58,
+      "proximity_52w": 98.3,
+      "tightness_score": 59.8
+    }
+  },
+  {
+    "ticker": "TVO.BK",
+    "sector": "Process Industries",
+    "exchange": "SET",
+    "technical": {
+      "price": 25.75,
+      "sma10": 24.64,
+      "sma20": 24.69,
+      "sma50": 24.29,
+      "sma200": 23.55,
+      "rs_rating": 72.4,
+      "rs_momentum": 85.2,
+      "stretch_factor": 2.84,
+      "atr_pct": 2.12,
+      "atr_mult_low": 8.55,
+      "volume_ratio": 1.44,
+      "proximity_52w": 100.0,
+      "tightness_score": 57.3
+    }
+  },
+  {
+    "ticker": "UBE.BK",
+    "sector": "Energy Minerals",
+    "exchange": "SET",
+    "technical": {
+      "price": 0.76,
+      "sma10": 0.79,
+      "sma20": 0.67,
+      "sma50": 0.54,
+      "sma200": 0.5,
+      "rs_rating": 95.9,
+      "rs_momentum": 98.0,
+      "stretch_factor": 4.73,
+      "atr_pct": 8.62,
+      "atr_mult_low": 5.24,
+      "volume_ratio": 0.45,
+      "proximity_52w": 86.4,
+      "tightness_score": 0
+    }
+  },
+  {
+    "ticker": "UKEM.BK",
+    "sector": "Distribution Services",
+    "exchange": "SET",
+    "technical": {
+      "price": 0.89,
+      "sma10": 0.81,
+      "sma20": 0.74,
+      "sma50": 0.67,
+      "sma200": 0.61,
+      "rs_rating": 94.2,
+      "rs_momentum": 98.0,
+      "stretch_factor": 5.17,
+      "atr_pct": 6.35,
+      "atr_mult_low": 5.84,
+      "volume_ratio": 0.47,
+      "proximity_52w": 94.7,
+      "tightness_score": 0
+    }
+  },
+  {
+    "ticker": "UVAN.BK",
+    "sector": "Process Industries",
+    "exchange": "SET",
+    "technical": {
+      "price": 15.9,
+      "sma10": 15.94,
+      "sma20": 15.69,
+      "sma50": 14.34,
+      "sma200": 11.96,
+      "rs_rating": 94.7,
+      "rs_momentum": 86.7,
+      "stretch_factor": 2.93,
+      "atr_pct": 3.71,
+      "atr_mult_low": 6.51,
+      "volume_ratio": 0.34,
+      "proximity_52w": 94.6,
+      "tightness_score": 66.5
+    }
+  },
+  {
+    "ticker": "VPO.BK",
+    "sector": "Consumer Non-Durables",
+    "exchange": "SET",
+    "technical": {
+      "price": 0.65,
+      "sma10": 0.68,
+      "sma20": 0.6,
+      "sma50": 0.51,
+      "sma200": 0.49,
+      "rs_rating": 88.8,
+      "rs_momentum": 98.0,
+      "stretch_factor": 2.91,
+      "atr_pct": 9.43,
+      "atr_mult_low": 3.92,
+      "volume_ratio": 0.39,
+      "proximity_52w": 85.5,
+      "tightness_score": 0
+    }
+  },
+  {
+    "ticker": "WHA.BK",
+    "sector": "Finance",
+    "exchange": "SET",
+    "technical": {
+      "price": 4.18,
+      "sma10": 4.14,
+      "sma20": 4.11,
+      "sma50": 3.96,
+      "sma200": 3.52,
+      "rs_rating": 84.0,
+      "rs_momentum": 67.9,
+      "stretch_factor": 1.64,
+      "atr_pct": 3.39,
+      "atr_mult_low": 7.34,
+      "volume_ratio": 1.23,
+      "proximity_52w": 91.3,
+      "tightness_score": 45.8
+    }
+  },
+  {
+    "ticker": "XPG.BK",
+    "sector": "Finance",
+    "exchange": "SET",
+    "technical": {
+      "price": 0.48,
+      "sma10": 0.47,
+      "sma20": 0.47,
+      "sma50": 0.48,
+      "sma200": 0.5,
+      "rs_rating": 30.9,
+      "rs_momentum": 74.1,
+      "stretch_factor": 0.0,
+      "atr_pct": 5.12,
+      "atr_mult_low": 3.19,
+      "volume_ratio": 0.56,
+      "proximity_52w": 59.1,
+      "tightness_score": 44.4
+    }
+  }
+]
